@@ -1,0 +1,66 @@
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 402px;
+  margin-bottom: 100px;
+  background-image: url("/bgSubScribeForm.png");
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 32px;
+  padding: 12px;
+  justify-content: center;
+}
+.titileContainer {
+  max-width: 568px;
+}
+.title {
+  font-size: 32px;
+  font-weight: 700;
+}
+.form {
+  position: relative;
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inputContainer {
+  display: flex;
+  align-items: center;
+  max-width: 550px;
+  width: 100%;
+  gap: 20px;
+}
+.input {
+  flex: 1;
+  padding-inline: 20px;
+  padding: 22px 30px;
+  border-radius: 8px;
+  border: none;
+}
+
+.btn {
+  padding: 19px 38px;
+  background-color: #070422;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+}
+@media (max-width: 570px) {
+  .title {
+    text-align: center;
+    font-size: 24px;
+  }
+}
+@media (max-width: 500px) {
+  .input {
+    width: 100%;
+  }
+  .inputContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
