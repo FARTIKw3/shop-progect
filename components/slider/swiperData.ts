@@ -5,31 +5,31 @@ interface Props {
 }
 export const swiperData: Props[] = [
   {
-    url: "/cartLaptop.png",
+    url: "/cartLaptop.jpg",
     title: "Ноутбук",
     description:
       "Lorem Ipsum - это текст-, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной  для текстов на латинице с начала XVI века.",
   },
   {
-    url: "/cartLaptop.png",
+    url: "/cartLaptop.jpg",
     title: "Ноутбук",
     description:
       "Lorem Ipsum - это текст-, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной  для текстов на латинице с начала XVI века.",
   },
   {
-    url: "/cartLaptop.png",
+    url: "/cartLaptop.jpg",
     title: "Ноутбук",
     description:
       "Lorem Ipsum - это текст-, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной  для текстов на латинице с начала XVI века.",
   },
   {
-    url: "/cartLaptop.png",
+    url: "/cartLaptop.jpg",
     title: "Ноутбук",
     description:
       "Lorem Ipsum - это текст-, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной  для текстов на латинице с начала XVI века.",
   },
   {
-    url: "/cartLaptop.png",
+    url: "/cartLaptop.jpg",
     title: "Ноутбук",
     description:
       "Lorem Ipsum - это текст-, часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной  для текстов на латинице с начала XVI века.",

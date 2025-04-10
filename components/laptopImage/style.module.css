@@ -1,5 +1,6 @@
 .LaptopImage {
-  max-width: 1440px;
+  max-width: 1640px;
+  background-size: cover;
   height: 600px;
   background-image: url("/laptop.png");
 }
