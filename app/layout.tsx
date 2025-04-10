@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 const geistInter = Inter({
   variable: "--font-Inter",
@@ -26,8 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistInter.variable} ${geistMontserrat.variable}`}>
-        {children}
         <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );
