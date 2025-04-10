@@ -1,0 +1,116 @@
+.container {
+  max-width: 1280px;
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.userInterface {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.basket {
+  cursor: pointer;
+}
+.favorite {
+  cursor: pointer;
+}
+.userProfile {
+  cursor: pointer;
+}
+.hamburger {
+  display: none;
+  z-index: 10;
+  cursor: pointer;
+  padding: 0px;
+  border: none;
+  margin: 0;
+  background: none;
+}
+
+.hamburger.isActive {
+  transform: rotate(90deg);
+}
+
+.hamburgerBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+}
+
+.hamburgerInner,
+.hamburgerInner::before,
+.hamburgerInner::after {
+  display: block;
+  width: 2rem;
+  height: 0.25rem;
+  border-radius: 10px;
+  background-color: #070422;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburgerInner {
+  position: relative;
+}
+
+.hamburgerInner::before,
+.hamburgerInner::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.hamburgerInner::before {
+  top: -8px;
+}
+
+.hamburgerInner::after {
+  bottom: -8px;
+}
+
+.hamburger.isActive .hamburgerInner {
+  transform: rotate(45deg);
+}
+
+.hamburger.isActive .hamburgerInner::before {
+  top: 0;
+  opacity: 0;
+}
+
+.hamburger.isActive .hamburgerInner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+}
+
+@media (max-width: 1300px) {
+  .container {
+    padding-inline: 20px;
+  }
+}
+@media (max-width: 760px) {
+  .userInterface {
+    gap: 10px;
+  }
+  .hamburger {
+    display: block;
+  }
+  .userProfile {
+    display: none;
+    transition: 0.5s;
+  }
+  .userProfile.userActive {
+    display: block;
+    z-index: 1;
+  }
+}
+@media (max-width: 420px) {
+  .userInterface {
+    gap: 10px;
+  }
+}

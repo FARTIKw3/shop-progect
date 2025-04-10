@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.link {
+  font-size: 18px;
+  font-family: Inter, sans-serif;
+  color: #070422;
+}
+@media (max-width: 760px) {
+  .container {
+    position: fixed;
+    top: 0;
+    margin: 0;
+    right: 0;
+    width: 15.5rem;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 4px 0 10px #62626254;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 0;
+    transform: translateX(100%);
+    transition: 0.2s;
+  }
+  .isActive {
+    transform: translateX(0);
+  }
+}
