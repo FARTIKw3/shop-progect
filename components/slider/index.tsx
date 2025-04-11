@@ -20,7 +20,7 @@ export const Slider = () => {
           slidesPerView={5}
           breakpoints={{
             320: { slidesPerView: 1, spaceBetween: 10 },
-            628: { slidesPerView: 2, spaceBetween: 20 },
+            628: { slidesPerView: 2, spaceBetween: 10 },
             1030: { slidesPerView: 3, spaceBetween: 30 },
             1280: { slidesPerView: 4, spaceBetween: 30 },
           }}

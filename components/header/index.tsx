@@ -7,18 +7,19 @@ import { useState } from "react";
 
 export const Header = () => {
   const [isActive, setIsActive] = useState(false);
+  const close = () => setIsActive(!isActive);
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
         <Image src="/svg/Logo.svg" width={100} height={36} alt="Logo" />
       </div>
-      <Navigation isActive={isActive} />
+      <Navigation isActive={isActive} close={close} />
       <div className={styles.userInterface}>
         <div>
           <button
             type="button"
             aria-label="menu"
-            onClick={() => setIsActive(!isActive)}
+            onClick={close}
             className={clsx(styles.hamburger, isActive && styles.isActive)}
           >
             <span className={styles.hamburgerBox}>

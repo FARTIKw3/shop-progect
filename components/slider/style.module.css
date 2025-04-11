@@ -65,3 +65,8 @@
 .btn:hover {
   width: 200px;
 }
+@media (max-width: 760px) {
+  .controls {
+    justify-content: center;
+  }
+}
