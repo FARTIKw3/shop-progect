@@ -52,7 +52,7 @@ export default function Accordion() {
       <div className={styles.accordion}>
         {data.map((item, index) => (
           <>
-            <div key={index} className={styles.item}>
+            <div key={index} className={styles.solid}>
               <button className={styles.plus} onClick={() => toggle(index)}>
                 <span className={styles.item_title}> {item.title} </span>
 
