@@ -1,0 +1,14 @@
+.background {
+  max-width: 1640px;
+  height: 600px;
+  margin: 0 auto;
+  background-image: url("/headerBg.png");
+  background-position: center;
+  background-size: cover;
+}
+
+@media screen and (max-width: 760px) {
+  .background {
+    display: none;
+  }
+}
