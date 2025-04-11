@@ -9,7 +9,34 @@ import { RightBtn } from "@/shared/sliderControls/rightBtn";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { CiCirclePlus } from "react-icons/ci";
 import { TbBookmark } from "react-icons/tb";
+import { useEffect, useState } from "react";
+import { fetchProducts } from "@/api/strapi";
+import { IProduct } from "@/interfaces/strapiData";
 export const Slider = () => {
+  const [slideData, setSlideData] = useState<IProduct[]>([]);
+
+  useEffect(() => {
+    const product = async () => {
+      try {
+        const data = await fetchProducts("image");
+        console.log("API Data: ", data);
+        if (data && data.data) {
+          setSlideData(data.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    product();
+  }, []);
+  console.log(slideData);
+
+  if (slideData.length === 0)
+    return (
+      <div>
+        <h1>Loding</h1>
+      </div>
+    );
   return (
     <>
       <div className={styles.container}>
@@ -26,14 +53,19 @@ export const Slider = () => {
           }}
           className={styles.customSwiper}
         >
-          {swiperData.map((item, index) => (
+          {slideData.map((item, index) => (
             <SwiperSlide className={styles.customSlider}>
               <div key={index} className={styles.cart}>
                 <div>
-                  <Image src={item.url} width={260} height={173} alt="cart" />
+                  <Image
+                    src={`http://localhost:1337${item.image[0]?.url}`}
+                    width={260}
+                    height={173}
+                    alt="cart"
+                  />
                 </div>
                 <div>
-                  <h2 className={styles.title}>{item.title}</h2>
+                  <h2 className={styles.title}>{item.name}</h2>
                 </div>
                 <p className={styles.paragh}>{item.description}</p>
                 <div className={styles.cont}>
