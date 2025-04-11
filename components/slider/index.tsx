@@ -12,8 +12,12 @@ import { TbBookmark } from "react-icons/tb";
 import { useEffect, useState } from "react";
 import { fetchProducts } from "@/api/strapi";
 import { IProduct } from "@/interfaces/strapiData";
+import { Modal } from "../modal";
 export const Slider = () => {
   const [slideData, setSlideData] = useState<IProduct[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeModal = () => setIsOpen(!isOpen);
 
   useEffect(() => {
     const product = async () => {
@@ -21,7 +25,7 @@ export const Slider = () => {
         const data = await fetchProducts("image");
         console.log("API Data: ", data);
         if (data && data.data) {
-          setSlideData(data.data);
+          setSlideData(data.data as IProduct[]);
         }
       } catch (error) {
         console.log(error);
@@ -29,7 +33,6 @@ export const Slider = () => {
     };
     product();
   }, []);
-  console.log(slideData);
 
   if (slideData.length === 0)
     return (
@@ -70,7 +73,10 @@ export const Slider = () => {
                 <p className={styles.paragh}>{item.description}</p>
                 <div className={styles.cont}>
                   <div className={styles.btn}>
-                    <button className={styles.btnw}>
+                    <button
+                      className={styles.btnw}
+                      onClick={() => setIsOpen(true)}
+                    >
                       <div className={styles.icon}>
                         <AiOutlineInfoCircle size={22} />
                       </div>
@@ -102,6 +108,7 @@ export const Slider = () => {
             <RightBtn />
           </div>
         </Swiper>
+        <Modal isOpen={isOpen} closeModal={closeModal} />
       </div>
     </>
   );

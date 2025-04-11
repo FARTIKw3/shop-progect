@@ -16,3 +16,17 @@ export const fetchProducts = async <T>(
     })
     .json();
 };
+
+export const fetchProductById = async <T>(
+  documentId: string,
+  populate: string
+): Promise<StrapiType<T>> => {
+  return strapiApi
+    .get(`api/laptops`, {
+      searchParams: {
+        "filters[documentId][$eq]": documentId,
+        populate: populate || "",
+      },
+    })
+    .json();
+};
