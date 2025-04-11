@@ -54,7 +54,7 @@ export default function Accordion() {
           <>
             <div key={index} className={styles.item}>
               <button className={styles.plus} onClick={() => toggle(index)}>
-                <span> {item.title} </span>
+                <span className={styles.item_title}> {item.title} </span>
 
                 <span className={styles.icon}>
                   {" "}

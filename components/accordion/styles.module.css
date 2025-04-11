@@ -10,14 +10,12 @@
 .text_cont {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   text-align: center;
 }
 .text {
-  /* display: flex; */
-  /* text-align: center; */
   margin-top: 15px;
   max-width: 615px;
+  font-size: 18px;
   color: #959595;
 }
 
@@ -28,7 +26,9 @@
 .item {
   border-top: 1px solid #070422;
   margin-top: 10px;
-  /* border-bottom: 1px solid #070422; */
+}
+.item_title {
+  font-size: 24px;
 }
 
 .plus {
@@ -88,5 +88,9 @@
   }
   .accordion {
     margin: 20px;
+  }
+  .icon {
+    width: 24px;
+    height: 24px;
   }
 }
