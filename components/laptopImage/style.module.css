@@ -1,0 +1,12 @@
+.LaptopImage {
+  max-width: 1640px;
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  background-image: url("/laptop.png");
+}
+@media (max-width: 760px) {
+  .LaptopImage {
+    display: none;
+  }
+}

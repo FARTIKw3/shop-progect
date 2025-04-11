@@ -13,7 +13,7 @@ export const navData: Props[] = [
     label: "О нас",
   },
   {
-    href: "/",
+    href: "/catalog",
     label: "Товары",
   },
   {
