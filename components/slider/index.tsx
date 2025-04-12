@@ -1,7 +1,6 @@
 "use client";
 import styles from "./style.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { swiperData } from "./swiperData";
 import Image from "next/image";
 import "swiper/css";
 import { LeftBtn } from "@/shared/sliderControls/leftBtn";
@@ -13,6 +12,7 @@ import { useEffect, useState } from "react";
 import { fetchProducts } from "@/api/strapi";
 import { IProduct } from "@/interfaces/strapiData";
 import { Modal } from "../modal";
+import Link from "next/link";
 export const Slider = () => {
   const [slideData, setSlideData] = useState<IProduct[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -83,14 +83,14 @@ export const Slider = () => {
                       <div>Полная информация</div>
                     </button>
                   </div>
-                  <div className={styles.btn}>
+                  <Link href="/catalog/basket" className={styles.btn}>
                     <button className={styles.btnw}>
                       <div className={styles.icon}>
                         <CiCirclePlus size={22} />
                       </div>
                       <div>Добавить в корзину</div>
                     </button>
-                  </div>
+                  </Link>
                   <div className={styles.btn}>
                     <button className={styles.btnw}>
                       <div className={styles.icon}>
