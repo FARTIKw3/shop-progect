@@ -1,7 +1,7 @@
 "use client";
 import styles from "./style.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { swiperData } from "./swiperData";
+// import { swiperData } from "./swiperData";
 import Image from "next/image";
 import "swiper/css";
 import { LeftBtn } from "@/shared/sliderControls/leftBtn";
@@ -57,8 +57,8 @@ export const Slider = () => {
           className={styles.customSwiper}
         >
           {slideData.map((item, index) => (
-            <SwiperSlide className={styles.customSlider}>
-              <div key={index} className={styles.cart}>
+            <SwiperSlide key={item.id || index} className={styles.customSlider}>
+              <div className={styles.cart}>
                 <div>
                   <Image
                     src={`http://localhost:1337${item.image[0]?.url}`}

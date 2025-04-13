@@ -3,6 +3,7 @@
   background-size: cover;
   background-position: center;
   height: 600px;
+  margin: 0 auto;
   background-image: url("/laptop.png");
 }
 @media (max-width: 760px) {
