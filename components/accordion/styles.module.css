@@ -1,6 +1,7 @@
 .main {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 20px 10px;
 }
 .title {
   text-align: center;
@@ -23,7 +24,7 @@
   margin: 40px;
 }
 
-.item {
+.solid {
   border-top: 1px solid #070422;
   margin-top: 10px;
 }
@@ -87,6 +88,7 @@
   .text {
     font-size: 14px;
     margin: 10px;
+    text-align: justify;
   }
   .accordion {
     margin: 20px;
@@ -94,5 +96,8 @@
   .icon {
     width: 24px;
     height: 24px;
+  }
+  .item_title {
+    font-size: 20px;
   }
 }
