@@ -4,6 +4,7 @@ import { Navigation } from "../navigation";
 import styles from "./style.module.css";
 import clsx from "clsx";
 import { useState } from "react";
+import Link from "next/link";
 
 export const Header = () => {
   const [isActive, setIsActive] = useState(false);
@@ -27,17 +28,17 @@ export const Header = () => {
             </span>
           </button>
         </div>
-        <div className={styles.basket}>
+        <Link href="/basket" className={styles.basket}>
           <Image src="/svg/basket.svg" width={30} height={30} alt="basket" />
-        </div>
-        <div className={styles.favorite}>
+        </Link>
+        <Link href="/favorite" className={styles.favorite}>
           <Image
             src="/svg/favorite.svg"
             width={30}
             height={30}
             alt="favorite"
           />
-        </div>
+        </Link>
         <div
           className={clsx(styles.userProfile, isActive && styles.userActive)}
         >

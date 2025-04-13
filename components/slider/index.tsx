@@ -12,10 +12,14 @@ import { useEffect, useState } from "react";
 import { fetchProducts } from "@/api/strapi";
 import { IProduct } from "@/interfaces/strapiData";
 import { Modal } from "../modal";
-import Link from "next/link";
+import { useBasket } from "@/store/basket";
+import { useFavorite } from "@/store/favorite";
+
 export const Slider = () => {
-  const [slideData, setSlideData] = useState<IProduct[]>([]);
+  const [slideData, setSlideData] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const { addBasketItem } = useBasket();
+  const { addFavorite } = useFavorite();
 
   const closeModal = () => setIsOpen(!isOpen);
 
@@ -83,16 +87,22 @@ export const Slider = () => {
                       <div>Полная информация</div>
                     </button>
                   </div>
-                  <Link href="/catalog/basket" className={styles.btn}>
-                    <button className={styles.btnw}>
+                  <div className={styles.btn}>
+                    <button
+                      className={styles.btnw}
+                      onClick={() => addBasketItem(item)}
+                    >
                       <div className={styles.icon}>
                         <CiCirclePlus size={22} />
                       </div>
                       <div>Добавить в корзину</div>
                     </button>
-                  </Link>
+                  </div>
                   <div className={styles.btn}>
-                    <button className={styles.btnw}>
+                    <button
+                      className={styles.btnw}
+                      onClick={() => addFavorite(item)}
+                    >
                       <div className={styles.icon}>
                         <TbBookmark size={22} />
                       </div>

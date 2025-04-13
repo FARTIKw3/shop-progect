@@ -4,13 +4,15 @@ import styles from "./style.module.css";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { useState } from "react";
 import { Modal } from "../modal";
+import { useFavorite } from "@/store/favorite";
+import { CiCirclePlus } from "react-icons/ci";
 import { useBasket } from "@/store/basket";
-import { Control } from "@/shared/controls";
 import { IoMdClose } from "react-icons/io";
 
-export const BasketPage = () => {
+export const FavoritePage = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { cart, removeBasketItem } = useBasket();
+  const { favorite, removeFavorite } = useFavorite();
+  const { addBasketItem } = useBasket();
 
   const closeModal = () => setIsOpen(!isOpen);
   return (
@@ -18,7 +20,7 @@ export const BasketPage = () => {
       <div className={styles.container}>
         <div className={styles.header}>
           <div>
-            <h1 className={styles.lol}>Ваша корзина </h1>
+            <h1 className={styles.lol}>Ваши избранные</h1>
           </div>
           <div>
             <input
@@ -28,14 +30,13 @@ export const BasketPage = () => {
             />
           </div>
         </div>
-
-        {cart.length === 0 && (
+        {favorite.length === 0 && (
           <div className={styles.clearCont}>
-            <h1 className={styles.clearTitle}> Ваша корзина пуста</h1>
+            <h1 className={styles.clearTitle}> Тут пуста</h1>
           </div>
         )}
         <div className={styles.cartContainer}>
-          {cart.map((item, index) => (
+          {favorite.map((item, index) => (
             <div className={styles.cart} key={index}>
               <div>
                 <Image
@@ -61,11 +62,21 @@ export const BasketPage = () => {
                     <div>Полная информация</div>
                   </button>
                 </div>
-                <button className={styles.checoutBtn}>Добавить к оплате</button>
+                <div className={styles.btn}>
+                  <button
+                    className={styles.btnw}
+                    onClick={() => addBasketItem(item)}
+                  >
+                    <div className={styles.icon}>
+                      <CiCirclePlus size={22} />
+                    </div>
+                    <div>Добавить в корзину</div>
+                  </button>
+                </div>
               </div>
               <button
                 className={styles.removeBtn}
-                onClick={() => removeBasketItem(item.id)}
+                onClick={() => removeFavorite(item.id)}
               >
                 <IoMdClose size={26} />
               </button>
