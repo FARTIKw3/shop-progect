@@ -49,34 +49,32 @@ export default function Accordion() {
           </p>
         </div>
       </div>
-      <div className={styles.accordion}>
-        {data.map((item, index) => (
-          <>
-            <div key={index} className={styles.solid}>
-              <button className={styles.plus} onClick={() => toggle(index)}>
-                <span className={styles.item_title}> {item.title} </span>
+      {data.map((item, index) => (
+        <div className={styles.accordion} key={index}>
+          <div key={index} className={styles.item}>
+            <button className={styles.plus} onClick={() => toggle(index)}>
+              <span className={styles.item_title}> {item.title} </span>
 
-                <span className={styles.icon}>
-                  {" "}
-                  {activeIndex === index ? (
-                    <GrClose />
-                  ) : (
-                    <GoPlus className={styles.GoPlus} />
-                  )}
-                </span>
-              </button>
-            </div>
-            <div
-              className={`${styles.content} ${
-                activeIndex === index ? styles.open : ""
-              } `}
-            >
-              <p>{item.content}</p>
-            </div>
-          </>
-        ))}
-        <div className={styles.item}></div>
-      </div>
+              <span className={styles.icon}>
+                {" "}
+                {activeIndex === index ? (
+                  <GrClose />
+                ) : (
+                  <GoPlus className={styles.GoPlus} />
+                )}
+              </span>
+            </button>
+          </div>
+          <div
+            className={`${styles.content} ${
+              activeIndex === index ? styles.open : ""
+            } `}
+          >
+            <p className={styles.paragh}>{item.content}</p>
+          </div>
+        </div>
+      ))}
+      <div className={styles.item}></div>
     </>
   );
 }
