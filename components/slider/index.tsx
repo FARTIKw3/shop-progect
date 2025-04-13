@@ -61,8 +61,8 @@ export const Slider = () => {
           className={styles.customSwiper}
         >
           {slideData.map((item, index) => (
-            <SwiperSlide className={styles.customSlider}>
-              <div key={index} className={styles.cart}>
+            <SwiperSlide key={item.id || index} className={styles.customSlider}>
+              <div className={styles.cart}>
                 <div>
                   <Image
                     src={`http://localhost:1337${item.image[0]?.url}`}
