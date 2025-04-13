@@ -1,0 +1,14 @@
+.starContainer {
+  display: flex;
+  gap: 4px;
+}
+
+.star {
+  color: gray;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.star.active {
+  color: gold;
+}
