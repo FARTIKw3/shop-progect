@@ -31,7 +31,9 @@
 .item_title {
   font-size: 24px;
 }
-
+.paragh {
+  font-size: 16px;
+}
 .plus {
   width: 100%;
   background: none;

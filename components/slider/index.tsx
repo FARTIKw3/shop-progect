@@ -1,7 +1,6 @@
 "use client";
 import styles from "./style.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import { swiperData } from "./swiperData";
 import Image from "next/image";
 import "swiper/css";
 import { LeftBtn } from "@/shared/sliderControls/leftBtn";
@@ -13,9 +12,14 @@ import { useEffect, useState } from "react";
 import { fetchProducts } from "@/api/strapi";
 import { IProduct } from "@/interfaces/strapiData";
 import { Modal } from "../modal";
+import { useBasket } from "@/store/basket";
+import { useFavorite } from "@/store/favorite";
+
 export const Slider = () => {
-  const [slideData, setSlideData] = useState<IProduct[]>([]);
+  const [slideData, setSlideData] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const { addBasketItem } = useBasket();
+  const { addFavorite } = useFavorite();
 
   const closeModal = () => setIsOpen(!isOpen);
 
@@ -84,7 +88,10 @@ export const Slider = () => {
                     </button>
                   </div>
                   <div className={styles.btn}>
-                    <button className={styles.btnw}>
+                    <button
+                      className={styles.btnw}
+                      onClick={() => addBasketItem(item)}
+                    >
                       <div className={styles.icon}>
                         <CiCirclePlus size={22} />
                       </div>
@@ -92,7 +99,10 @@ export const Slider = () => {
                     </button>
                   </div>
                   <div className={styles.btn}>
-                    <button className={styles.btnw}>
+                    <button
+                      className={styles.btnw}
+                      onClick={() => addFavorite(item)}
+                    >
                       <div className={styles.icon}>
                         <TbBookmark size={22} />
                       </div>
