@@ -13,8 +13,12 @@ export default function Custom404() {
           height={148}
           alt="custom404"
         />
-        <Link href="/">вернуться на главную</Link>
       </div>
+      <div className={styles.link_cont}>
+        <Link className={styles.link} href="/">
+          вернуться на главную
+        </Link>
+      </div>{" "}
     </>
   );
 }
