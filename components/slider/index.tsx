@@ -9,7 +9,6 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { CiCirclePlus } from "react-icons/ci";
 import { TbBookmark } from "react-icons/tb";
 import { useEffect, useState } from "react";
-import { fetchProducts } from "@/api/strapi";
 import { IProduct } from "@/interfaces/strapiData";
 import { Modal } from "../modal";
 import { useBasket } from "@/store/basket";
@@ -23,7 +22,7 @@ export const Slider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
 
   const closeModal = () => setIsOpen(!isOpen);
 
-  if (slideData.length === 0)
+  if (!slideData || slideData.length === 0)
     return (
       <div>
         <h1>Loding</h1>
