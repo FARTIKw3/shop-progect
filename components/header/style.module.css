@@ -49,6 +49,11 @@
   font-size: 16px;
   transition: 0.2s;
 }
+.favBas {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .box.absolute {
   position: absolute;
   top: 0;
@@ -59,9 +64,7 @@
   border: 1px solid #070422;
   background: none;
 }
-.favorite.hidden {
-  display: none;
-}
+
 .hamburger {
   display: none;
   position: relative;
@@ -149,11 +152,13 @@
     transition: 0.5s;
   }
   .authBtn.authBtnAtive {
+    position: absolute;
+    top: 60px;
+    right: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column-reverse;
-
     z-index: 3;
   }
   .userProfile {

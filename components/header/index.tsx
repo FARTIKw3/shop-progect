@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { SingUp } from "../singUp";
 import { Login } from "../login";
 
-export const Header = ({ isLoggedIn }) => {
+export const Header = ({ isLoggedIn }: any) => {
   const [isActive, setIsActive] = useState(false);
   const [isOpenLogin, setIsOpenLogin] = useState(false);
 
@@ -45,27 +45,27 @@ export const Header = ({ isLoggedIn }) => {
             </span>
           </button>
         </div>
-        <Link
-          href="/basket"
-          className={clsx(styles.favorite, isActive && styles.hidden)}
-        >
-          <Image src="/svg/basket.svg" width={30} height={30} alt="basket" />
-        </Link>
-        <Link
-          href="/favorite"
-          className={clsx(styles.favorite, isActive && styles.hidden)}
-        >
-          <Image
-            src="/svg/favorite.svg"
-            width={30}
-            height={30}
-            alt="favorite"
-          />
-        </Link>
-        {isLoggedIn ? (
-          <div
-            className={clsx(styles.userProfile, isActive && styles.userActive)}
+        <div className={styles.favBas}>
+          <Link
+            href="/basket"
+            className={clsx(styles.favorite, isActive && styles.hidden)}
           >
+            <Image src="/svg/basket.svg" width={30} height={30} alt="basket" />
+          </Link>
+          <Link
+            href="/favorite"
+            className={clsx(styles.favorite, isActive && styles.hidden)}
+          >
+            <Image
+              src="/svg/favorite.svg"
+              width={30}
+              height={30}
+              alt="favorite"
+            />
+          </Link>
+        </div>
+        {isLoggedIn ? (
+          <Link href="/profile" className={styles.userProfile}>
             <Image
               src="/userPhoto.jpg"
               width={50}
@@ -73,11 +73,9 @@ export const Header = ({ isLoggedIn }) => {
               alt="userPhoto."
             />
             <button onClick={handleLogout}>Выйти</button>
-          </div>
+          </Link>
         ) : (
-          <div
-            className={clsx(styles.authBtn, isActive && styles.authBtnAtive)}
-          >
+          <div className={styles.authBtn}>
             <button onClick={closeLogin} className={styles.login}>
               Вход{" "}
             </button>

@@ -56,7 +56,7 @@ export const fetchProfile = async (
   token: string
 ): Promise<IProfile["user"]> => {
   return await strapiApi
-    .get("users/me", {
+    .get("api/users/me", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -22,9 +22,10 @@
     flex-direction: column;
     z-index: 2;
     transform: translateX(100%);
-    transition: 0.2s;
+    transition: 0.1s;
   }
   .isActive {
     transform: translateX(0);
+
   }
 }
