@@ -5,10 +5,27 @@ import styles from "./style.module.css";
 import clsx from "clsx";
 import { useState } from "react";
 import Link from "next/link";
+import { logout } from "@/lib/server-helper";
+import { useRouter } from "next/navigation";
+import { SingUp } from "../singUp";
+import { Login } from "../login";
 
-export const Header = () => {
+export const Header = ({ isLoggedIn }) => {
   const [isActive, setIsActive] = useState(false);
+  const [isOpenLogin, setIsOpenLogin] = useState(false);
+
+  const [isOpenRegister, setIsOpenRegister] = useState(false);
+  const closeRegister = () => setIsOpenRegister(!isOpenRegister);
+  const closeLogin = () => setIsOpenLogin(!isOpenLogin);
+
   const close = () => setIsActive(!isActive);
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await logout();
+    router.refresh();
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
@@ -16,7 +33,7 @@ export const Header = () => {
       </div>
       <Navigation isActive={isActive} close={close} />
       <div className={styles.userInterface}>
-        <div>
+        <div className={clsx(styles.box, isActive && styles.absolute)}>
           <button
             type="button"
             aria-label="menu"
@@ -28,10 +45,16 @@ export const Header = () => {
             </span>
           </button>
         </div>
-        <Link href="/basket" className={styles.basket}>
+        <Link
+          href="/basket"
+          className={clsx(styles.favorite, isActive && styles.hidden)}
+        >
           <Image src="/svg/basket.svg" width={30} height={30} alt="basket" />
         </Link>
-        <Link href="/favorite" className={styles.favorite}>
+        <Link
+          href="/favorite"
+          className={clsx(styles.favorite, isActive && styles.hidden)}
+        >
           <Image
             src="/svg/favorite.svg"
             width={30}
@@ -39,12 +62,33 @@ export const Header = () => {
             alt="favorite"
           />
         </Link>
-        <div
-          className={clsx(styles.userProfile, isActive && styles.userActive)}
-        >
-          <Image src="/userPhoto.jpg" width={50} height={50} alt="userPhoto." />
-        </div>
+        {isLoggedIn ? (
+          <div
+            className={clsx(styles.userProfile, isActive && styles.userActive)}
+          >
+            <Image
+              src="/userPhoto.jpg"
+              width={50}
+              height={50}
+              alt="userPhoto."
+            />
+            <button onClick={handleLogout}>Выйти</button>
+          </div>
+        ) : (
+          <div
+            className={clsx(styles.authBtn, isActive && styles.authBtnAtive)}
+          >
+            <button onClick={closeLogin} className={styles.login}>
+              Вход{" "}
+            </button>
+            <button onClick={closeRegister} className={styles.register}>
+              Регистрация{" "}
+            </button>
+          </div>
+        )}
       </div>
+      <SingUp isOpen={isOpenRegister} setIsOpen={setIsOpenRegister} />
+      <Login isOpen={isOpenLogin} setIsOpen={setIsOpenLogin} />
     </div>
   );
 };

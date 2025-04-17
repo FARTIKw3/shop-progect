@@ -20,6 +20,48 @@
 .userProfile {
   cursor: pointer;
 }
+.authBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.login {
+  padding: 8px 18px;
+  border-radius: 8px;
+  color: #070422;
+  border: 3px solid #070422;
+  font-size: 16px;
+  background: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.login:hover {
+  background-color: #070422;
+  color: white;
+}
+.register {
+  padding: 8px 18px;
+  border-radius: 8px;
+  background: #070422;
+  color: white;
+  font-size: 16px;
+  transition: 0.2s;
+}
+.box.absolute {
+  position: absolute;
+  top: 0;
+  right: 10;
+}
+.register:hover {
+  color: #070422;
+  border: 1px solid #070422;
+  background: none;
+}
+.favorite.hidden {
+  display: none;
+}
 .hamburger {
   display: none;
   position: relative;
@@ -94,12 +136,25 @@
     padding-inline: 20px;
   }
 }
-@media (max-width: 760px) {
+
+@media (max-width: 890px) {
   .userInterface {
     gap: 10px;
   }
   .hamburger {
     display: block;
+  }
+  .authBtn {
+    display: none;
+    transition: 0.5s;
+  }
+  .authBtn.authBtnAtive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+
+    z-index: 3;
   }
   .userProfile {
     display: none;
