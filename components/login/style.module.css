@@ -14,8 +14,6 @@
   font-size: 18px;
 }
 
-.fomr {
-}
 .label {
   color: #070707;
   font-size: 18px;
@@ -50,13 +48,7 @@
 .link {
   color: #070707;
 }
-.inputContainer {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: start;
-}
+
 .agreement {
   margin-top: 5px;
   color: #959595;
@@ -103,9 +95,5 @@
   .content {
     padding: 20px;
     max-width: 400px;
-    height: 560px;
-  }
-  .formBtn {
-    font-size: 14px;
   }
 }

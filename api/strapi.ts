@@ -1,3 +1,4 @@
+import { Icredentials, IProfile } from "@/interfaces/auth";
 import { StrapiType } from "@/interfaces/strapiData";
 import ky from "ky";
 
@@ -26,6 +27,38 @@ export const fetchProductById = async <T>(
       searchParams: {
         "filters[documentId][$eq]": documentId,
         populate: populate || "",
+      },
+    })
+    .json();
+};
+
+export const postLogin = (credentials: Icredentials): Promise<IProfile> => {
+  return strapiApi
+    .post("api/auth/local", {
+      json: credentials,
+    })
+    .json();
+};
+
+export const postRegister = (credentials: {
+  username: string;
+  email: string;
+  password: string;
+}): Promise<IProfile> => {
+  return strapiApi
+    .post("api/auth/local/register", {
+      json: credentials,
+    })
+    .json();
+};
+
+export const fetchProfile = async (
+  token: string
+): Promise<IProfile["user"]> => {
+  return await strapiApi
+    .get("users/me", {
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
     })
     .json();
