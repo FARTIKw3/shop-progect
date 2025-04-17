@@ -9,36 +9,20 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { CiCirclePlus } from "react-icons/ci";
 import { TbBookmark } from "react-icons/tb";
 import { useEffect, useState } from "react";
-import { fetchProducts } from "@/api/strapi";
 import { IProduct } from "@/interfaces/strapiData";
 import { Modal } from "../modal";
 import { useBasket } from "@/store/basket";
 import { useFavorite } from "@/store/favorite";
 
-export const Slider = () => {
-  const [slideData, setSlideData] = useState<any[]>([]);
+export const Slider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
+  const [slideData, setSlideData] = useState<IProduct[]>(dataSlide);
   const [isOpen, setIsOpen] = useState(false);
   const { addBasketItem } = useBasket();
   const { addFavorite } = useFavorite();
 
   const closeModal = () => setIsOpen(!isOpen);
 
-  useEffect(() => {
-    const product = async () => {
-      try {
-        const data = await fetchProducts("image");
-        console.log("API Data: ", data);
-        if (data && data.data) {
-          setSlideData(data.data as IProduct[]);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    product();
-  }, []);
-
-  if (slideData.length === 0)
+  if (!slideData || slideData.length === 0)
     return (
       <div>
         <h1>Loding</h1>

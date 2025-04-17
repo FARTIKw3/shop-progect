@@ -7,7 +7,6 @@ interface FavoriteItem {
   name: string;
   description: string;
   url: string;
-  image: string;
 }
 
 type State = {
