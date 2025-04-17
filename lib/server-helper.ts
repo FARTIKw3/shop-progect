@@ -1,4 +1,5 @@
 "use server";
+import { IProfile } from "@/interfaces/auth";
 import { cookies } from "next/headers";
 
 export const getToken = async () => {

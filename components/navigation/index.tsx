@@ -15,7 +15,9 @@ export const Navigation = ({ isActive, close }: Props) => {
           key={item.label}
           href={item.href}
           className={styles.link}
-          onClick={close}
+          onClick={() => {
+            if (window.innerWidth < 890) close();
+          }}
         >
           {item.label}
         </Link>
