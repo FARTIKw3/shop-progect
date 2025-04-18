@@ -37,7 +37,7 @@ export const CategorySlider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
             <h1>Ноутбуки </h1>
           </div>
           <div>
-            <Link href="/">
+            <Link href="/separate">
               {" "}
               <span className={styles.span}>Открыть страницу </span>
             </Link>
