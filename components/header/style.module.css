@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   max-width: 1280px;
   margin: 40px auto;
   display: flex;
@@ -153,13 +154,14 @@
   }
   .authBtn.authBtnAtive {
     position: absolute;
-    top: 60px;
-    right: 20px;
+    display: block;
+    top: 30px;
+    right: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column-reverse;
-    z-index: 3;
+    z-index: 7;
   }
   .userProfile {
     display: none;
@@ -167,7 +169,10 @@
   }
   .userProfile.userActive {
     display: block;
-    z-index: 3;
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    z-index: 7;
   }
 }
 @media (max-width: 420px) {

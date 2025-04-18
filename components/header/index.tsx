@@ -65,17 +65,21 @@ export const Header = ({ isLoggedIn }: any) => {
           </Link>
         </div>
         {isLoggedIn ? (
-          <Link href="/profile" className={styles.userProfile}>
+          <Link
+            href="/profile"
+            className={clsx(styles.userProfile, isActive && styles.userActive)}
+          >
             <Image
               src="/userPhoto.jpg"
               width={50}
               height={50}
               alt="userPhoto."
             />
-            <button onClick={handleLogout}>Выйти</button>
           </Link>
         ) : (
-          <div className={styles.authBtn}>
+          <div
+            className={clsx(styles.authBtn, isActive && styles.authBtnAtive)}
+          >
             <button onClick={closeLogin} className={styles.login}>
               Вход{" "}
             </button>
@@ -84,6 +88,7 @@ export const Header = ({ isLoggedIn }: any) => {
             </button>
           </div>
         )}
+        <button onClick={handleLogout}>Выйти</button>
       </div>
       <SingUp isOpen={isOpenRegister} setIsOpen={setIsOpenRegister} />
       <Login isOpen={isOpenLogin} setIsOpen={setIsOpenLogin} />
