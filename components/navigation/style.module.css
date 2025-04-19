@@ -7,8 +7,9 @@
   font-size: 18px;
   font-family: Inter, sans-serif;
   color: #070422;
+  z-index: 2;
 }
-@media (max-width: 760px) {
+@media (max-width: 890px) {
   .container {
     position: fixed;
     top: 0;
@@ -22,7 +23,7 @@
     flex-direction: column;
     z-index: 2;
     transform: translateX(100%);
-    transition: 0.2s;
+    transition: 0.1s;
   }
   .isActive {
     transform: translateX(0);

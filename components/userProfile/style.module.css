@@ -1,0 +1,38 @@
+.container {
+  position: relative;
+  margin-bottom: 20%;
+}
+.blue {
+  max-width: 1640px;
+  width: 100%;
+  background-color: #070422;
+  margin: 0 auto;
+  height: 200px;
+}
+.img {
+  border-radius: 50px;
+}
+.bot {
+  margin-bottom: 33%;
+}
+.user {
+  position: absolute;
+  display: flex;
+  gap: 20px;
+  top: 120px;
+  left: 40px;
+}
+.userText {
+  display: flex;
+  margin-top: 80px;
+  align-items: start;
+  flex-direction: column;
+}
+.name {
+  color: #070422;
+  font-size: 32px;
+}
+.email {
+  color: gray;
+  font-size: 20px;
+}

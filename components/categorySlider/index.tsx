@@ -13,8 +13,9 @@ import { IProduct } from "@/interfaces/strapiData";
 import { Modal } from "../modal";
 import { useBasket } from "@/store/basket";
 import { useFavorite } from "@/store/favorite";
+import Link from "next/link";
 
-export const Slider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
+export const CategorySlider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
   const [slideData, setSlideData] = useState<IProduct[]>(dataSlide);
   const [isOpen, setIsOpen] = useState(false);
   const { addBasketItem } = useBasket();
@@ -31,8 +32,16 @@ export const Slider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
   return (
     <>
       <div className={styles.container}>
-        <div>
-          <h1>Популярные товары</h1>
+        <div className={styles.titleContainer}>
+          <div>
+            <h1>Ноутбуки </h1>
+          </div>
+          <div>
+            <Link href="/separate">
+              {" "}
+              <span className={styles.span}>Открыть страницу </span>
+            </Link>
+          </div>
         </div>
         <Swiper
           slidesPerView={5}

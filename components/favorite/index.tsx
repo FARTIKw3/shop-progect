@@ -75,6 +75,8 @@ export const FavoritePage = () => {
                 </div>
               </div>
               <button
+                type="button"
+                title="."
                 className={styles.removeBtn}
                 onClick={() => removeFavorite(item.id)}
               >

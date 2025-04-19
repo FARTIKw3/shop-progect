@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   max-width: 1280px;
   margin: 40px auto;
   display: flex;
@@ -20,6 +21,51 @@
 .userProfile {
   cursor: pointer;
 }
+.authBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.login {
+  padding: 8px 18px;
+  border-radius: 8px;
+  color: #070422;
+  border: 3px solid #070422;
+  font-size: 16px;
+  background: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.login:hover {
+  background-color: #070422;
+  color: white;
+}
+.register {
+  padding: 8px 18px;
+  border-radius: 8px;
+  background: #070422;
+  color: white;
+  font-size: 16px;
+  transition: 0.2s;
+}
+.favBas {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.box.absolute {
+  position: absolute;
+  top: 0;
+  right: 10;
+}
+.register:hover {
+  color: #070422;
+  border: 1px solid #070422;
+  background: none;
+}
+
 .hamburger {
   display: none;
   position: relative;
@@ -94,12 +140,28 @@
     padding-inline: 20px;
   }
 }
-@media (max-width: 760px) {
+
+@media (max-width: 890px) {
   .userInterface {
     gap: 10px;
   }
   .hamburger {
     display: block;
+  }
+  .authBtn {
+    display: none;
+    transition: 0.5s;
+  }
+  .authBtn.authBtnAtive {
+    position: absolute;
+    display: block;
+    top: 30px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    z-index: 7;
   }
   .userProfile {
     display: none;
@@ -107,7 +169,10 @@
   }
   .userProfile.userActive {
     display: block;
-    z-index: 3;
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    z-index: 7;
   }
 }
 @media (max-width: 420px) {

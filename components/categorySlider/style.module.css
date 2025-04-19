@@ -10,7 +10,16 @@
   box-shadow: 12px 7px 27px #71717137;
   padding: 20px;
 }
-
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.span {
+  font-size: 20px;
+  color: #070422;
+  border-bottom: 1px solid black;
+}
 .title {
   font-size: 18px;
   font-weight: 500;

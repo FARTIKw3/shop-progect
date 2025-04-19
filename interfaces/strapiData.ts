@@ -1,11 +1,13 @@
 export interface StrapiType<T> {
   data: T;
+  meta?: any;
 }
 
 export interface IProduct {
   id: number;
   documentId: string;
   name: string;
+  url: string;
   description: string;
   createdAt: string;
   updatedAt: string;
