@@ -15,7 +15,8 @@
 }
 .content {
   background-color: white;
-  max-width: 880px;
+  max-width: 1280px;
+  width: 100%;
   margin: auto auto;
   padding: 30px 80px 55px;
   border-radius: 32px;
@@ -28,33 +29,4 @@
 }
 .content.active {
   transform: scale(1);
-}
-.borderBotom {
-  border-bottom: 1px solid #000;
-  max-width: 1120px;
-  margin: 0 auto 60;
-}
-.title {
-  margin-bottom: 30px;
-  font-size: 32px;
-}
-.paragh {
-  margin-top: 10px;
-  color: gray;
-}
-.title2 {
-  margin-top: 20px;
-  font-size: 24px;
-  font-weight: 600;
-}
-.list {
-  list-style: none;
-}
-.list li {
-  font-size: 12px;
-  font-weight: 600;
-  color: #070422;
-}
-.span {
-  color: gray;
 }

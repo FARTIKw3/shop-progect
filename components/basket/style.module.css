@@ -1,4 +1,5 @@
 .cartContainer {
+  position: relative;
   max-width: 1280px;
   margin: 40 auto 60px;
   gap: 20px;
@@ -114,4 +115,22 @@
 }
 .cart:hover .removeBtn {
   display: block;
+}
+.openOrder {
+  position: absolute;
+  left: 60%;
+  top: 0;
+}
+.orderBtn {
+  padding: 2px;
+  background: none;
+  cursor: pointer;
+  border-radius: 0 0 10px 10px;
+}
+.orderBtn.btnAvtive {
+  transform: rotate(180deg);
+  border-radius: 10px 10px 0 0;
+}
+.openOrder.OrderActive {
+  top: 142px;
 }

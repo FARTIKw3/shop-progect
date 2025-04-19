@@ -24,14 +24,14 @@ export const useBasket = create<State & Actions>()(
       cart: [],
       addBasketItem: (good) =>
         set((state) => {
-          state.cart.push(good);
+          const exists = state.cart.some((item) => item.id === good.id);
+          if (!exists) {
+            state.cart.push(good);
+          }
         }),
       removeBasketItem: (id) =>
         set((state) => {
-          const index = state.cart.findIndex((item) => item.id === id);
-          if (index !== -1) {
-            state.cart.splice(index, 1);
-          }
+          state.cart = state.cart.filter((item) => item.id !== id);
         }),
     }))
   )
