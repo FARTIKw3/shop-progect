@@ -134,3 +134,15 @@
 .openOrder.OrderActive {
   top: 142px;
 }
+@media (max-width: 430px) {
+  .openOrder.OrderActive {
+    z-index: 7;
+    top: 230px;
+  }
+}
+@media (max-width: 500px) {
+  .header {
+    flex-direction: column;
+    align-items: start;
+  }
+}

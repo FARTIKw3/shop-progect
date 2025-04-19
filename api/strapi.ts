@@ -1,6 +1,7 @@
 import { Icredentials, IProfile } from "@/interfaces/auth";
 import { StrapiType } from "@/interfaces/strapiData";
 import ky from "ky";
+import { json } from "stream/consumers";
 
 export const strapiApi = ky.create({
   prefixUrl: process.env.NEXT_PUBLIC_STRAPI_API,
@@ -59,6 +60,25 @@ export const fetchProfile = async (
     .get("api/users/me", {
       headers: {
         Authorization: `Bearer ${token}`,
+      },
+    })
+    .json();
+};
+
+export const postOrder = (orderData: {
+  name: string;
+  lastName: string;
+  number: string;
+  email: string;
+  country: string;
+  city: string;
+  street: string;
+  mailIndex: string;
+}): Promise<any> => {
+  return strapiApi
+    .post("api/orders", {
+      json: {
+        data: orderData,
       },
     })
     .json();

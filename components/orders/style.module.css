@@ -1,5 +1,5 @@
 .container {
-  position: absolute;
+  position: fixed;
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
@@ -13,7 +13,7 @@
   border-bottom-right-radius: 24px;
   transform: translateY(-1220px);
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.552);
-  left: 121px;
+  left: 7%;
   z-index: 7;
 }
 .container.active {
@@ -48,10 +48,23 @@
   display: block;
 }
 .btn {
-  padding: 38px 76px;
+  padding: 24px 36px;
   border-radius: 12px;
   background-color: #070422;
   color: white;
   font-size: 20px;
   cursor: pointer;
+}
+@media (max-width: 970px) {
+  .btn {
+    padding: 22px 44px;
+  }
+  .container {
+    justify-content: space-evenly;
+  }
+}
+@media (max-width: 430px) {
+  .container {
+    flex-direction: column;
+  }
 }

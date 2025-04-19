@@ -5,15 +5,41 @@ import clsx from "clsx";
 import { useOrder } from "@/store/orders";
 import { IoMdClose } from "react-icons/io";
 import { OrderForm } from "../orderForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { isAuth } from "@/lib/server-helper";
+
 interface IModalProps {
   isOrder: boolean;
+  close: () => void;
 }
-export const Order = ({ isOrder }: IModalProps) => {
+
+export const Order = ({ isOrder, close }: IModalProps) => {
   const [formOpen, setFormOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
   const { circle, removeOrderItem } = useOrder();
 
-  const closeForm = () => setFormOpen(!formOpen);
+  useEffect(() => {
+    const checkAuth = async () => {
+      const loggedIn = await isAuth();
+      setIsLoggedIn(loggedIn);
+    };
+    checkAuth();
+  }, []);
+
+  useEffect(() => {
+    if (circle.length === 0) close();
+  }, [circle]);
+
+  const handleOrderClick = () => {
+    if (isLoggedIn) {
+      setFormOpen(true);
+      setErrorMessage(null);
+    } else {
+      setErrorMessage("Вы не авторизованы.");
+    }
+  };
 
   return (
     <>
@@ -38,12 +64,16 @@ export const Order = ({ isOrder }: IModalProps) => {
           ))}
         </div>
         <div>
-          <button className={styles.btn} onClick={() => setFormOpen(true)}>
+          <button className={styles.btn} onClick={handleOrderClick}>
             Оформить заказ
           </button>
+          {errorMessage && <p className={styles.error}>{errorMessage}</p>}
         </div>
       </div>
-      <OrderForm formOpen={formOpen} closeForm={closeForm} />
+
+      {formOpen && (
+        <OrderForm formOpen={formOpen} closeForm={() => setFormOpen(false)} />
+      )}
     </>
   );
 };

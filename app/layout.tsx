@@ -3,7 +3,6 @@ import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { cookies } from "next/headers";
 import { isAuth } from "@/lib/server-helper";
 
 const geistInter = Inter({

@@ -19,6 +19,7 @@ export const BasketPage = () => {
   const closeModal = () => setIsOpen(!isOpen);
   const closeOrder = () => setIsOrder(!isOrder);
 
+  const close = () => setIsOrder(!isOrder);
   return (
     <>
       <div className={styles.container}>
@@ -34,7 +35,7 @@ export const BasketPage = () => {
             </button>
           </div>
         )}
-        <Order isOrder={isOrder} />
+        {isOrder && <Order isOrder={isOrder} close={close} />}
         <div className={styles.header}>
           <div>
             <h1 className={styles.lol}>Ваша корзина </h1>
