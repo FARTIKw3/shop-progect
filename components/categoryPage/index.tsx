@@ -15,7 +15,7 @@ export const CategoryPage = ({ allGood }: { allGood: IProduct }) => {
   const { addBasketItem } = useBasket();
   const { addFavorite } = useFavorite();
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.header}>
         <div>
           <h1 className={styles.lol}>Ноутбуки </h1>

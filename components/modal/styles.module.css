@@ -13,11 +13,6 @@
   transition: 0.5s;
   z-index: 3;
 }
-.borderBotom {
-  border-bottom: 1px solid #000;
-  max-width: 1120px;
-  margin: 0 auto 60;
-}
 .content {
   background-color: white;
   max-width: 880px;
@@ -33,6 +28,11 @@
 }
 .content.active {
   transform: scale(1);
+}
+.borderBotom {
+  border-bottom: 1px solid #000;
+  max-width: 1120px;
+  margin: 0 auto 60;
 }
 .title {
   margin-bottom: 30px;
