@@ -23,7 +23,7 @@ export const StarRating = () => {
           onMouseLeave={() => setHoverItem(null)}
           onClick={() => setCurrentItem(index)}
         >
-          <IoStarSharp />
+          <IoStarSharp size={40} />
         </div>
       ))}
     </div>

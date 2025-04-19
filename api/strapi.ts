@@ -30,3 +30,17 @@ export const fetchProductById = async <T>(
     })
     .json();
 };
+
+interface IReview {
+  description: string;
+}
+
+export const postReview = (review: IReview): Promise<IReview> => {
+  return strapiApi
+    .post("api/reviews", {
+      json: {
+        data: review,
+      },
+    })
+    .json();
+};
