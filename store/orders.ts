@@ -14,6 +14,7 @@ type State = {
 type Actions = {
   addOrderItem: (good: OrderItem) => void;
   removeOrderItem: (id: number) => void;
+  clearOrder: () => void;
 };
 
 export const useOrder = create<State & Actions>()(
@@ -30,6 +31,10 @@ export const useOrder = create<State & Actions>()(
       removeOrderItem: (id) =>
         set((state) => {
           state.circle = state.circle.filter((item) => item.id !== id);
+        }),
+      clearOrder: () =>
+        set((state) => {
+          state.circle = [];
         }),
     }))
   )

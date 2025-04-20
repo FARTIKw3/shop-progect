@@ -14,7 +14,13 @@ export interface IProduct {
   publishedAt: string;
   image: Image[];
 }
-
+export interface IReview {
+  id: number;
+  description: string;
+  rating: number;
+  username: string;
+  createdAt: string;
+}
 export interface Image {
   id: number;
   documentId: string;

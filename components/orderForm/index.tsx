@@ -12,7 +12,7 @@ interface FormProps {
 }
 
 export const OrderForm = ({ formOpen, closeForm }: FormProps) => {
-  const { circle, removeOrderItem } = useOrder();
+  const { circle, removeOrderItem, clearOrder } = useOrder();
   const [formData, setFormData] = useState({
     name: "",
     lastName: "",
@@ -28,6 +28,7 @@ export const OrderForm = ({ formOpen, closeForm }: FormProps) => {
       closeForm();
     }
   }, [circle]);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -36,6 +37,7 @@ export const OrderForm = ({ formOpen, closeForm }: FormProps) => {
     try {
       await postOrder(formData);
       alert("Заказ успешно отправлен");
+      clearOrder();
       closeForm();
     } catch (error) {
       console.log("Ошибка", error);
@@ -77,7 +79,7 @@ export const OrderForm = ({ formOpen, closeForm }: FormProps) => {
                 ))}
               </div>
             </div>
-            <form action="" className={styles.form}>
+            <form action="" className={styles.form} onSubmit={handleSubmit}>
               <div>
                 <span className={styles.span}>Получатель:</span>
               </div>
