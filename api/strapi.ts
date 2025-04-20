@@ -83,3 +83,19 @@ export const postOrder = (orderData: {
     })
     .json();
 };
+
+export const postReview = (reviewData: {
+  description: string;
+  rating: number;
+  username: string;
+}): Promise<any> => {
+  return strapiApi
+    .post("api/reviews", {
+      json: { data: reviewData },
+    })
+    .json();
+};
+
+export const getReviews = async (): Promise<any> => {
+  return strapiApi.get("api/reviews").json();
+};

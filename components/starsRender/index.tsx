@@ -1,5 +1,4 @@
 import { GoStarFill } from "react-icons/go";
-// import { GoStar } from "react-icons/go";
 
 export const renderStars = (rating: number) => {
   return (

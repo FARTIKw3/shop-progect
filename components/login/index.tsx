@@ -1,12 +1,12 @@
 "use client";
 import clsx from "clsx";
 import styles from "./style.module.css";
-import { useState } from "react";
-import Link from "next/link";
-import { registerAction } from "@/actions/registrer.action";
 import { loginActions } from "@/actions/login.action";
-
-export const Login = ({ isOpen, setIsOpen }) => {
+interface ILoginProps {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}
+export const Login = ({ isOpen, setIsOpen }: ILoginProps) => {
   const closeModal = () => setIsOpen(false);
 
   return (
