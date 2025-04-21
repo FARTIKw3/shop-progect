@@ -26,7 +26,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const isLoggedIn = await isAuth();
-  console.log("LOL", isLoggedIn);
 
   return (
     <html lang="en">
