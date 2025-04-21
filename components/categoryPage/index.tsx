@@ -9,7 +9,7 @@ import { useFavorite } from "@/store/favorite";
 import { CiCirclePlus } from "react-icons/ci";
 import { TbBookmark } from "react-icons/tb";
 
-export const CategoryPage = ({ allGood }: { allGood: IProduct }) => {
+export const CategoryPage = ({ allGood }: { allGood: IProduct[] }) => {
   const [slideGood, setSlideGood] = useState<IProduct[]>(allGood);
   const [isOpen, setIsOpen] = useState(false);
   const { addBasketItem } = useBasket();

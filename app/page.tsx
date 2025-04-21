@@ -4,10 +4,9 @@ import { HomeBG } from "@/components/homeBG/ihdex";
 import { HomeReviews } from "@/components/reviewsHomePage";
 import { Slider } from "@/components/slider";
 import { SubScribeForm } from "@/components/subScribeForm";
-import { IProduct } from "@/interfaces/strapiData";
 
 export default async function Home() {
-  const { data } = await fetchProducts<IProduct>("image");
+  const { data } = await fetchProducts("image");
   return (
     <div>
       <HomeBG />
