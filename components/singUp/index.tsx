@@ -1,7 +1,6 @@
 "use client";
 import clsx from "clsx";
 import styles from "./style.module.css";
-import { useState } from "react";
 import Link from "next/link";
 import { registerAction } from "@/actions/registrer.action";
 

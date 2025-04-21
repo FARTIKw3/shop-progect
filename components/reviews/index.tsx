@@ -1,9 +1,7 @@
 "use client";
-import Link from "next/link";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { renderStars } from "../starsRender";
-import { IoArrowForwardSharp } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import { IReview } from "@/interfaces/strapiData";
 import { formatData } from "@/utils/formatData";
