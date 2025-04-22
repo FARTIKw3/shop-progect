@@ -31,7 +31,7 @@ export const Slider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
   return (
     <>
       <div className={styles.container}>
-        <div>
+        <div className={styles.container__title}>
           <h1>Популярные товары</h1>
         </div>
         <Swiper
