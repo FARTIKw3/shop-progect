@@ -16,7 +16,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 export const CategorySlider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
-  const [slideData, setSlideData] = useState<IProduct[]>(dataSlide);
+  const [slideData] = useState<IProduct[]>(dataSlide);
   const [isOpen, setIsOpen] = useState(false);
   const { addBasketItem } = useBasket();
   const { addFavorite } = useFavorite();

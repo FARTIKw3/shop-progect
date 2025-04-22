@@ -3,8 +3,11 @@ import clsx from "clsx";
 import styles from "./style.module.css";
 import Link from "next/link";
 import { registerAction } from "@/actions/registrer.action";
-
-export const SingUp = ({ isOpen, setIsOpen }) => {
+type SingUpProps = {
+  isOpen: boolean;
+  setIsOpen: (value: boolean) => void;
+};
+export const SingUp = ({ isOpen, setIsOpen }: SingUpProps) => {
   const closeModal = () => setIsOpen(false);
   return (
     <>

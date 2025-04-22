@@ -7,6 +7,7 @@ interface BasketItem {
   name: string;
   description: string;
   url: string;
+  image: { url: string }[];
 }
 
 type State = {

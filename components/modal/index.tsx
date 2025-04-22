@@ -30,9 +30,9 @@ export const Modal = ({ isOpen, closeModal }: IModalProps) => {
           <div>
             <h2 className={styles.title2}>MacBook M1</h2>
             <p className={styles.paragh}>
-              Lorem Ipsum - это текст-"рыба", часто используемый в печати и
+              {` Lorem Ipsum - это текст-"рыба", часто используемый в печати и
               вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов
-              на латинице с начала XVI века.
+              на латинице с начала XVI века.`}
             </p>
           </div>
           <div>

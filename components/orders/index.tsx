@@ -30,7 +30,7 @@ export const Order = ({ isOrder, close }: IModalProps) => {
 
   useEffect(() => {
     if (circle.length === 0) close();
-  }, [circle]);
+  }, [circle, close]);
 
   const handleOrderClick = () => {
     if (isLoggedIn) {

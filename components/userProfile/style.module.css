@@ -25,7 +25,7 @@
 .userText {
   display: flex;
   margin-top: 80px;
-  align-items: start;
+  align-items: flex-start;
   flex-direction: column;
 }
 .name {

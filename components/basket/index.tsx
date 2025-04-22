@@ -12,7 +12,7 @@ import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
 export const BasketPage = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { cart, removeBasketItem } = useBasket();
+  const { cart } = useBasket();
   const [isOrder, setIsOrder] = useState(false);
   const { addOrderItem, circle } = useOrder();
   const closeModal = () => setIsOpen(!isOpen);
@@ -27,6 +27,7 @@ export const BasketPage = () => {
             className={clsx(styles.openOrder, isOrder && styles.OrderActive)}
           >
             <button
+              title="'"
               onClick={closeOrder}
               className={clsx(styles.orderBtn, isOrder && styles.btnAvtive)}
             >
@@ -58,7 +59,7 @@ export const BasketPage = () => {
             <div className={styles.cart} key={index}>
               <div>
                 <Image
-                  src={`http://localhost:1337${item.image[0]?.url}`}
+                  src={`${process.env.NEXT_PUBLIC_STRAPI_API}/${item.image?.[0]?.url}`}
                   width={260}
                   height={173}
                   alt="cart"

@@ -8,14 +8,14 @@ import { RightBtn } from "@/shared/sliderControls/rightBtn";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { CiCirclePlus } from "react-icons/ci";
 import { TbBookmark } from "react-icons/tb";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IProduct } from "@/interfaces/strapiData";
 import { Modal } from "../modal";
 import { useBasket } from "@/store/basket";
 import { useFavorite } from "@/store/favorite";
 
 export const Slider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
-  const [slideData, setSlideData] = useState<IProduct[]>(dataSlide);
+  const [slideData] = useState<IProduct[]>(dataSlide);
   const [isOpen, setIsOpen] = useState(false);
   const { addBasketItem } = useBasket();
   const { addFavorite } = useFavorite();

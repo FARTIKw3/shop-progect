@@ -9,8 +9,10 @@ import { logout } from "@/lib/server-helper";
 import { useRouter } from "next/navigation";
 import { SingUp } from "../singUp";
 import { Login } from "../login";
-
-export const Header = ({ isLoggedIn }: any) => {
+interface HeaderProps {
+  isLoggedIn: boolean;
+}
+export const Header = ({ isLoggedIn }: HeaderProps) => {
   const [isActive, setIsActive] = useState(false);
   const [isOpenLogin, setIsOpenLogin] = useState(false);
 

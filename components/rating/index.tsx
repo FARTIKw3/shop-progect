@@ -11,7 +11,8 @@ import { IReview } from "@/interfaces/strapiData";
 export default function Rating({ data }: { data: IReview[] }) {
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState<number | null>(null);
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
+  const [, setIsLoggedIn] = useState<boolean | null>(null);
+
   useEffect(() => {
     const checkAuth = async () => {
       const loggedIn = await isAuth();
@@ -20,25 +21,40 @@ export default function Rating({ data }: { data: IReview[] }) {
     checkAuth();
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     const loggedIn = await isAuth();
     if (!loggedIn) {
       alert("Войдите, чтобы оставить отзыв");
       return;
     }
+
     if (!description.trim() || rating === null) return;
+
     try {
       const token = await getToken();
+      if (!token) {
+        console.log("Токен не найден");
+        return;
+      }
+
       const user = await fetchProfile(token);
+      if (!user?.username) {
+        console.log("Имя пользователя не найдено");
+        return;
+      }
+
       await postReview({ description, rating, username: user.username });
+
       setDescription("");
       setRating(null);
-      alert("опубликовано");
+      alert("Отзыв опубликован");
     } catch (error) {
-      console.error("error", error);
+      console.error("Ошибка при отправке отзыва", error);
     }
   };
+
   return (
     <>
       <div className={styles.review}>

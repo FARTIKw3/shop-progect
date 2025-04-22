@@ -5,6 +5,7 @@ import { immer } from "zustand/middleware/immer";
 interface OrderItem {
   id: number;
   url: string;
+  image: { url: string }[];
 }
 
 type State = {

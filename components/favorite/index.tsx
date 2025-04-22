@@ -40,7 +40,7 @@ export const FavoritePage = () => {
             <div className={styles.cart} key={index}>
               <div>
                 <Image
-                  src={`http://localhost:1337${item.image[0]?.url}`}
+                  src={`${process.env.NEXT_PUBLIC_STRAPI_API}/${item.image[0]?.url}`}
                   width={260}
                   height={173}
                   alt="cart"

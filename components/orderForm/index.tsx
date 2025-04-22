@@ -1,4 +1,3 @@
-"use client";
 import clsx from "clsx";
 import styles from "./style.module.css";
 import { useOrder } from "@/store/orders";
@@ -6,9 +5,10 @@ import Image from "next/image";
 import { IoMdClose } from "react-icons/io";
 import { useEffect, useState } from "react";
 import { postOrder } from "@/api/strapi";
+
 interface FormProps {
   formOpen: boolean;
-  closeForm: any;
+  closeForm: () => void;
 }
 
 export const OrderForm = ({ formOpen, closeForm }: FormProps) => {
@@ -23,16 +23,18 @@ export const OrderForm = ({ formOpen, closeForm }: FormProps) => {
     street: "",
     mailIndex: "",
   });
+
   useEffect(() => {
     if (circle.length === 0) {
       closeForm();
     }
-  }, [circle]);
+  }, [circle, closeForm]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const handleSubmit = async (e) => {
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       await postOrder(formData);
@@ -63,7 +65,7 @@ export const OrderForm = ({ formOpen, closeForm }: FormProps) => {
                   <div className={styles.imgCon} key={index}>
                     <Image
                       className={styles.img}
-                      src={`http://localhost:1337${item.image[0]?.url}`}
+                      src={`${process.env.NEXT_PUBLIC_STRAPI_API}/${item.image[0]?.url}`}
                       width={100}
                       height={100}
                       alt="img"
@@ -200,7 +202,6 @@ export const OrderForm = ({ formOpen, closeForm }: FormProps) => {
               </div>
               <div className={styles.borderBottom}></div>
               <div>
-                {" "}
                 <div className={styles.contInput}>
                   <span className={styles.span}>Выберите способ оплаты:</span>
                   <select

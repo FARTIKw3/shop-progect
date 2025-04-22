@@ -10,10 +10,11 @@ import { CiCirclePlus } from "react-icons/ci";
 import { TbBookmark } from "react-icons/tb";
 
 export const CategoryPage = ({ allGood }: { allGood: IProduct[] }) => {
-  const [slideGood, setSlideGood] = useState<IProduct[]>(allGood);
-  const [isOpen, setIsOpen] = useState(false);
+  const [slideGood] = useState<IProduct[]>(allGood);
+  const [, setIsOpen] = useState(false);
   const { addBasketItem } = useBasket();
   const { addFavorite } = useFavorite();
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -35,7 +36,7 @@ export const CategoryPage = ({ allGood }: { allGood: IProduct[] }) => {
           <div className={styles.cart} key={item.id}>
             <div>
               <Image
-                src={`http://localhost:1337${item.image[0]?.url}`}
+                src={`${process.env.NEXT_PUBLIC_STRAPI_API}/${item.image[0]?.url}`}
                 width={260}
                 height={173}
                 alt="cart"
