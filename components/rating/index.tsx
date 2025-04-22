@@ -13,15 +13,13 @@ export default function Rating({ data }: { data: IReview[] }) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Проверяем, что описание и рейтинг введены
     if (!description.trim() || rating === null) return;
 
     try {
-      // Отправляем POST-запрос на сервер
       const res = await fetch("/api/review", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ description, rating }), // Отправляем описание и рейтинг
+        body: JSON.stringify({ description, rating }),
       });
 
       const result = await res.json();
@@ -31,7 +29,6 @@ export default function Rating({ data }: { data: IReview[] }) {
         return;
       }
 
-      // Если отзыв отправлен успешно, очищаем поля
       setDescription("");
       setRating(null);
       alert("Отзыв опубликован!");
