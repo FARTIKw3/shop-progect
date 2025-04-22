@@ -18,7 +18,6 @@ export const fetchProducts = async <T>(
     })
     .json();
 };
-
 export const fetchProductById = async <T>(
   documentId: string,
   populate: string
