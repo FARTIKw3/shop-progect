@@ -1,9 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import clsx from "clsx";
-import { fetchProductById } from "@/api/strapi";
-import { IProduct } from "@/interfaces/strapiData";
 import Image from "next/image";
 
 interface IModalProps {

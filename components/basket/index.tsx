@@ -5,7 +5,6 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { useState } from "react";
 import { Modal } from "../modal";
 import { useBasket } from "@/store/basket";
-import { IoMdClose } from "react-icons/io";
 import { Order } from "../orders";
 import { useOrder } from "@/store/orders";
 import clsx from "clsx";
