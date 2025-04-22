@@ -30,9 +30,14 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistInter.variable} ${geistMontserrat.variable}`}>
-        <Header isLoggedIn={isLoggedIn} />
-        {children}
-        <Footer />
+        <div className="headerContainer">
+          {" "}
+          <Header isLoggedIn={isLoggedIn} />
+        </div>
+        <div className="layout">
+          <main className="main-content">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

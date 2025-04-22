@@ -57,7 +57,7 @@
 }
 .box.absolute {
   position: absolute;
-  top: 0;
+  top: -50px;
   right: 10;
 }
 .register:hover {
@@ -141,7 +141,7 @@
   }
 }
 
-@media (max-width: 890px) {
+@media (max-width: 960px) {
   .userInterface {
     gap: 10px;
   }
@@ -155,8 +155,8 @@
   .authBtn.authBtnAtive {
     position: absolute;
     display: block;
-    top: 30px;
-    right: 25px;
+    top: 0;
+    right: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -179,4 +179,6 @@
   .userInterface {
     gap: 10px;
   }
+}
+@media (max-width: 960px) {
 }
