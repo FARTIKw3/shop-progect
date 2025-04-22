@@ -2,6 +2,7 @@
 import styles from "./styles.module.css";
 import clsx from "clsx";
 import Image from "next/image";
+import { useEffect } from "react";
 
 interface IModalProps {
   isOpen: boolean;
@@ -9,6 +10,19 @@ interface IModalProps {
 }
 
 export const Modal = ({ isOpen, closeModal }: IModalProps) => {
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = originalOverflow || "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isOpen]);
   return (
     <>
       <div
@@ -24,7 +38,13 @@ export const Modal = ({ isOpen, closeModal }: IModalProps) => {
           </div>
           <div className={styles.borderBotom}></div>
           <div>
-            <Image src="/modalCart.jpg" width={720} height={300} alt="img" />
+            <Image
+              src="/modalCart.jpg"
+              width={720}
+              height={300}
+              alt="img"
+              className={styles.image}
+            />
           </div>
 
           <div>
