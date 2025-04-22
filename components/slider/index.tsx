@@ -19,7 +19,7 @@ export const Slider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { addBasketItem } = useBasket();
   const { addFavorite } = useFavorite();
-
+  const API_URL = process.env.NEXT_PUBLIC_STRAPI_API || "http://:1337";
   const closeModal = () => setIsOpen(!isOpen);
 
   if (!slideData || slideData.length === 0)
@@ -49,7 +49,7 @@ export const Slider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
               <div className={styles.cart}>
                 <div>
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_STRAPI_API}/${item.image?.[0]?.url}`}
+                    src={`${API_URL}${item.image[0]?.url}`}
                     width={260}
                     height={173}
                     alt="cart"
