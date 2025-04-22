@@ -13,9 +13,12 @@
   color: #959595;
   font-size: 18px;
 }
-
-.fomr {
+.errorMessage {
+  color: red;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
 }
+
 .label {
   color: #070707;
   font-size: 18px;
