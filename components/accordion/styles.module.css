@@ -1,6 +1,6 @@
 .main {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 30px auto 50px;
   padding: 20px 10px;
 }
 .title {
@@ -13,15 +13,19 @@
   justify-content: center;
   text-align: center;
 }
+
 .text {
   margin-top: 15px;
   max-width: 615px;
-  font-size: 18px;
+  font-size: 16px;
   color: #959595;
 }
-
+.item {
+  margin-top: 20px;
+}
 .accordion {
-  margin: 40px;
+  margin-top: 20px;
+  padding-inline: 40px;
 }
 
 .solid {
@@ -29,7 +33,7 @@
   margin-top: 10px;
 }
 .item_title {
-  font-size: 24px;
+  font-size: 20px;
 }
 .paragh {
   font-size: 16px;
@@ -88,16 +92,17 @@
   .text {
     font-size: 14px;
     margin: 10px;
-    text-align: justify;
+    text-align: center;
   }
   .accordion {
     margin: 20px;
+    padding-inline: 10px;
   }
   .icon {
     width: 24px;
     height: 24px;
   }
   .item_title {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
