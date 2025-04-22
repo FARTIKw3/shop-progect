@@ -2,7 +2,6 @@
 
 import { postLogin } from "@/api/strapi";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 export const loginActions = async (formData: FormData) => {
   const email = formData.get("email") as string;
@@ -11,21 +10,21 @@ export const loginActions = async (formData: FormData) => {
   try {
     const userData = await postLogin({
       identifier: email,
-      password: password,
+      password,
     });
 
-    if (!userData || !userData.jwt) {
-      throw new Error("Invalid credentials");
+    if (!userData?.jwt) {
+      return { error: "Неверный email или пароль" };
     }
 
-    const cookiesData = cookies();
-    (await cookiesData).set("jwt", userData.jwt, {
+    const cookieStore = cookies();
+    (await cookieStore).set("jwt", userData.jwt, {
       httpOnly: true,
       maxAge: 60 * 60 * 24 * 7,
     });
 
-    redirect("/");
-  } catch (error: any) {
-    return { error: "Неверный email или пароль" };
+    return { success: true };
+  } catch (error) {
+    return { error: "Ошибка при входе" };
   }
 };
