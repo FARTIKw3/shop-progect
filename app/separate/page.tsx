@@ -4,7 +4,7 @@ import { IProduct } from "@/interfaces/strapiData";
 import React from "react";
 
 export default async function Separate() {
-  const { data } = await fetchProducts<IProduct>("image");
+  const { data } = await fetchProducts<IProduct[]>("image");
 
   return (
     <div>

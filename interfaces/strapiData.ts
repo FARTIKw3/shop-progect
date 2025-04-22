@@ -1,5 +1,5 @@
 export interface StrapiType<T> {
-  data: T[];
+  data: T;
   meta?: any;
 }
 
