@@ -1,40 +1,57 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReviewsPreview from "../reviews";
 import { StarRating } from "../starRating";
 import styles from "./styles.module.css";
 import Image from "next/image";
+import { fetchProfile, postReview } from "@/api/strapi";
+import { getToken, isAuth } from "@/lib/server-helper";
 import { IReview } from "@/interfaces/strapiData";
 
 export default function Rating({ data }: { data: IReview[] }) {
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState<number | null>(null);
+  const [, setIsLoggedIn] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const loggedIn = await isAuth();
+      setIsLoggedIn(loggedIn);
+    };
+    checkAuth();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const loggedIn = await isAuth();
+    if (!loggedIn) {
+      alert("Войдите, чтобы оставить отзыв");
+      return;
+    }
+
     if (!description.trim() || rating === null) return;
 
     try {
-      const res = await fetch("/api/review", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ description, rating }),
-      });
-
-      const result = await res.json();
-
-      if (!res.ok) {
-        alert(result.error || "Ошибка при отправке отзыва");
+      const token = await getToken();
+      if (!token) {
+        console.log("Токен не найден");
         return;
       }
 
+      const user = await fetchProfile(token);
+      if (!user?.username) {
+        console.log("Имя пользователя не найдено");
+        return;
+      }
+
+      await postReview({ description, rating, username: user.username });
+
       setDescription("");
       setRating(null);
-      alert("Отзыв опубликован!");
+      alert("Отзыв опубликован");
     } catch (error) {
-      console.error("error", error);
-      alert("Ошибка сети");
+      console.error("Ошибка при отправке отзыва", error);
     }
   };
 
@@ -50,7 +67,7 @@ export default function Rating({ data }: { data: IReview[] }) {
               maxLength={300}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-            />
+            ></textarea>
             <StarRating onChange={(value) => setRating(value)} value={rating} />
             <button className={styles.review__button} type="submit">
               Опубликовать
@@ -67,7 +84,6 @@ export default function Rating({ data }: { data: IReview[] }) {
           />
         </div>
       </div>
-
       <div className={styles.review__list}>
         <h3 className={styles.list__title}>Отзывы</h3>
         {data && <ReviewsPreview data={data} />}

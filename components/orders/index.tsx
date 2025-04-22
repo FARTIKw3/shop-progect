@@ -49,7 +49,7 @@ export const Order = ({ isOrder, close }: IModalProps) => {
             <div className={styles.imgCon} key={index}>
               <Image
                 className={styles.img}
-                src={`http://localhost:1337${item.image[0]?.url}`}
+                src={`${process.env.NEXT_PUBLIC_STRAPI_API}/${item.image?.[0]?.url}`}
                 width={100}
                 height={100}
                 alt="img"
