@@ -1,7 +1,6 @@
 import { Icredentials, IProfile } from "@/interfaces/auth";
 import { StrapiType } from "@/interfaces/strapiData";
 import ky from "ky";
-import { json } from "stream/consumers";
 
 export const strapiApi = ky.create({
   prefixUrl: process.env.NEXT_PUBLIC_STRAPI_API,

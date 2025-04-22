@@ -1,5 +1,4 @@
 import { useSwiper } from "swiper/react";
-import styles from "./style.module.css";
 import { TfiArrowCircleLeft } from "react-icons/tfi";
 
 export const LeftBtn = () => {

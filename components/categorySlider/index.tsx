@@ -8,12 +8,12 @@ import { RightBtn } from "@/shared/sliderControls/rightBtn";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { CiCirclePlus } from "react-icons/ci";
 import { TbBookmark } from "react-icons/tb";
-import { useEffect, useState } from "react";
 import { IProduct } from "@/interfaces/strapiData";
 import { Modal } from "../modal";
 import { useBasket } from "@/store/basket";
 import { useFavorite } from "@/store/favorite";
 import Link from "next/link";
+import { useState } from "react";
 
 export const CategorySlider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
   const [slideData, setSlideData] = useState<IProduct[]>(dataSlide);
