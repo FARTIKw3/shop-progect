@@ -11,7 +11,7 @@ export const StarRating = ({
   onChange?: (value: number) => void;
   value?: number | null;
 }) => {
-  const [currentItem, setCurrentItem] = useState<number | null>();
+  const [currentItem, setCurrentItem] = useState<number | null>(value ?? null);
   const [hoverItem, setHoverItem] = useState<number | null>(null);
 
   useEffect(() => {
@@ -19,12 +19,14 @@ export const StarRating = ({
       setCurrentItem(null);
     }
   }, [value]);
+
   const handleClick = (index: number) => {
     setCurrentItem(index);
     if (onChange) {
       onChange(index + 1);
     }
   };
+
   return (
     <div className={styles.starContainer}>
       {Array.from({ length: 5 }).map((_, index) => (
