@@ -6,8 +6,8 @@ import { Slider } from "@/components/slider";
 import { IProduct, StrapiType } from "@/interfaces/strapiData";
 
 export default async function Catalog() {
-  const response = await fetchProducts<StrapiType<IProduct[]>>("image");
-  const data: IProduct[] = response.data;
+  const { data } = await fetchProducts<IProduct[]>("image");
+
   return (
     <div>
       <LaptopImage />

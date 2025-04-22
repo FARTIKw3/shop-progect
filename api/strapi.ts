@@ -8,7 +8,7 @@ export const strapiApi = ky.create({
 
 export const fetchProducts = async <T>(
   populate: string
-): Promise<StrapiType<T[]>> => {
+): Promise<StrapiType<T>> => {
   return strapiApi
     .get(`api/laptops`, {
       searchParams: {
@@ -17,7 +17,6 @@ export const fetchProducts = async <T>(
     })
     .json();
 };
-
 export const fetchProductById = async <T>(
   documentId: string,
   populate: string
