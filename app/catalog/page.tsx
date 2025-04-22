@@ -7,6 +7,7 @@ import { IProduct, StrapiType } from "@/interfaces/strapiData";
 
 export default async function Catalog() {
   const { data } = await fetchProducts<IProduct[]>("image");
+
   return (
     <div>
       <LaptopImage />
