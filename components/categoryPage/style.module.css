@@ -4,7 +4,7 @@
 .header {
   max-width: 1280px;
   width: 100%;
-  margin: 0 auto;
+  margin: 20px auto;
   display: flex;
   padding: 10px;
   justify-content: space-between;
@@ -103,7 +103,7 @@
 }
 @media (max-width: 760px) {
   .header {
-    align-items: start;
+    align-items: flex-start;
     gap: 10px;
     flex-direction: column;
   }

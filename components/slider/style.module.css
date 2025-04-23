@@ -4,10 +4,15 @@
   max-width: 1280px;
   margin: 60px auto 0;
 }
+.container__title {
+  padding: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
 .cart {
   max-width: 300px;
   border-radius: 12px;
-  box-shadow: 12px 7px 27px #71717137;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   padding: 20px;
 }
 
@@ -24,6 +29,8 @@
 .controls {
   max-width: 1400px;
   margin-top: 30px;
+  margin-bottom: 30px;
+
   display: flex;
   justify-content: end;
   align-items: center;
@@ -68,6 +75,6 @@
 }
 @media (max-width: 760px) {
   .controls {
-    justify-content: center;
+    display: none;
   }
 }

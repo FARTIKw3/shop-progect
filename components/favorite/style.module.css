@@ -1,13 +1,16 @@
 .cartContainer {
+  position: relative;
   max-width: 1280px;
-  margin: 40 auto 60px;
-  display: grid;
+  margin: 40px auto 60px;
   gap: 20px;
-  grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
+
 .header {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 30 auto 0;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,7 +30,8 @@
   position: relative;
   max-width: 300px;
   border-radius: 12px;
-  box-shadow: 12px 7px 27px #71717137;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
   padding: 20px;
 }
 .clearCont {
@@ -56,7 +60,7 @@
   max-width: 1400px;
   margin-top: 30px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: end;
   align-items: center;
   gap: 30px;
 }
@@ -78,11 +82,11 @@
   cursor: pointer;
 }
 .icon {
-  padding: 10px 10px 10px 7px;
+  padding: 10px 10px 10px 8px;
 }
 .btn {
-  width: 38px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -93,8 +97,15 @@
   font-size: 12px;
   color: #070422;
 }
-.btn:hover {
-  width: 200px;
+
+.checoutBtn {
+  font-size: 14px;
+  padding: 12px 38px;
+  border-radius: 12px;
+  border: none;
+  background-color: #070422;
+  color: white;
+  cursor: pointer;
 }
 .removeBtn {
   position: absolute;
@@ -107,4 +118,43 @@
 }
 .cart:hover .removeBtn {
   display: block;
+}
+.openOrder {
+  position: absolute;
+  left: 60%;
+  top: 0;
+}
+.orderBtn {
+  padding: 2px;
+  background: none;
+  cursor: pointer;
+  border-radius: 0 0 10px 10px;
+}
+.orderBtn.btnAvtive {
+  transform: rotate(180deg);
+  border-radius: 10px 10px 0 0;
+}
+.openOrder.OrderActive {
+  top: 142px;
+}
+@media (max-width: 660px) {
+  .cartContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 565px) {
+  .header {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+@media (max-width: 430px) {
+  .openOrder.OrderActive {
+    z-index: 7;
+    top: 230px;
+  }
 }

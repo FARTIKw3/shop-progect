@@ -14,6 +14,7 @@ export const CategoryPage = ({ allGood }: { allGood: IProduct[] }) => {
   const [, setIsOpen] = useState(false);
   const { addBasketItem } = useBasket();
   const { addFavorite } = useFavorite();
+  const API_URL = process.env.NEXT_PUBLIC_STRAPI_API || "http://:1337";
 
   return (
     <div className={styles.container}>
@@ -36,7 +37,7 @@ export const CategoryPage = ({ allGood }: { allGood: IProduct[] }) => {
           <div className={styles.cart} key={item.id}>
             <div>
               <Image
-                src={`${process.env.NEXT_PUBLIC_STRAPI_API}/${item.image[0]?.url}`}
+                src={`${API_URL}${item.image[0]?.url}`}
                 width={260}
                 height={173}
                 alt="cart"

@@ -1,9 +1,16 @@
+.overlay {
+  position: relative;
+  max-width: 1660px;
+  margin: 0 auto;
+}
 .container {
-  position: fixed;
+  position: absolute;
   max-width: 1280px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 50px 0 0px;
   display: flex;
+  top: -65px;
+  right: 200px;
   gap: 20px;
   padding: 20px;
   align-items: center;
@@ -12,7 +19,8 @@
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
   transform: translateY(-1220px);
-  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.552);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
   left: 7%;
   z-index: 7;
 }
@@ -57,14 +65,18 @@
 }
 @media (max-width: 970px) {
   .btn {
-    padding: 22px 44px;
+    padding: 16px 26px;
   }
   .container {
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
 }
 @media (max-width: 430px) {
   .container {
     flex-direction: column;
+  }
+  .img {
+    width: 75px;
+    height: 75px;
   }
 }

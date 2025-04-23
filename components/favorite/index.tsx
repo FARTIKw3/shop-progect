@@ -15,6 +15,8 @@ export const FavoritePage = () => {
   const { addBasketItem } = useBasket();
 
   const closeModal = () => setIsOpen(!isOpen);
+  const API_URL = process.env.NEXT_PUBLIC_STRAPI_API || "http://:1337";
+
   return (
     <>
       <div className={styles.container}>
@@ -40,7 +42,7 @@ export const FavoritePage = () => {
             <div className={styles.cart} key={index}>
               <div>
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_API}/${item.image[0]?.url}`}
+                  src={`${API_URL}${item.image[0]?.url}`}
                   width={260}
                   height={173}
                   alt="cart"
@@ -76,7 +78,7 @@ export const FavoritePage = () => {
               </div>
               <button
                 type="button"
-                title="."
+                title=""
                 className={styles.removeBtn}
                 onClick={() => removeFavorite(item.id)}
               >

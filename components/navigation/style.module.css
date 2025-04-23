@@ -9,7 +9,7 @@
   color: #070422;
   z-index: 2;
 }
-@media (max-width: 890px) {
+@media (max-width: 960px) {
   .container {
     position: fixed;
     top: 0;

@@ -19,9 +19,11 @@ export const BasketPage = () => {
   const closeOrder = () => setIsOrder(!isOrder);
 
   const close = () => setIsOrder(!isOrder);
+  const API_URL = process.env.NEXT_PUBLIC_STRAPI_API || "http://:1337";
+
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.container} onClick={close}>
         {circle.length > 0 && (
           <div
             className={clsx(styles.openOrder, isOrder && styles.OrderActive)}
@@ -59,7 +61,7 @@ export const BasketPage = () => {
             <div className={styles.cart} key={index}>
               <div>
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_API}/${item.image?.[0]?.url}`}
+                  src={`${API_URL}${item.image[0]?.url}`}
                   width={260}
                   height={173}
                   alt="cart"

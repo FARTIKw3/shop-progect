@@ -23,13 +23,26 @@ export const OrderForm = ({ formOpen, closeForm }: FormProps) => {
     street: "",
     mailIndex: "",
   });
+  const API_URL = process.env.NEXT_PUBLIC_STRAPI_API || "http://:1337";
 
   useEffect(() => {
     if (circle.length === 0) {
       closeForm();
     }
   }, [circle, closeForm]);
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
 
+    if (formOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = originalOverflow || "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [formOpen]);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -65,7 +78,7 @@ export const OrderForm = ({ formOpen, closeForm }: FormProps) => {
                   <div className={styles.imgCon} key={index}>
                     <Image
                       className={styles.img}
-                      src={`${process.env.NEXT_PUBLIC_STRAPI_API}/${item.image[0]?.url}`}
+                      src={`${API_URL}${item.image[0]?.url}`}
                       width={100}
                       height={100}
                       alt="img"

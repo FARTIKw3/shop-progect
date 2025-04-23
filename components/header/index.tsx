@@ -67,17 +67,23 @@ export const Header = ({ isLoggedIn }: HeaderProps) => {
           </Link>
         </div>
         {isLoggedIn ? (
-          <Link
-            href="/profile"
-            className={clsx(styles.userProfile, isActive && styles.userActive)}
-          >
-            <Image
-              src="/userPhoto.jpg"
-              width={50}
-              height={50}
-              alt="userPhoto."
-            />
-          </Link>
+          <>
+            <Link
+              href="/profile"
+              className={clsx(
+                styles.userProfile,
+                isActive && styles.userActive
+              )}
+            >
+              <Image
+                src="/userPhoto.jpg"
+                width={50}
+                height={50}
+                alt="userPhoto."
+              />
+            </Link>
+            <button onClick={handleLogout}>Выйти</button>
+          </>
         ) : (
           <div
             className={clsx(styles.authBtn, isActive && styles.authBtnAtive)}
@@ -90,7 +96,6 @@ export const Header = ({ isLoggedIn }: HeaderProps) => {
             </button>
           </div>
         )}
-        <button onClick={handleLogout}>Выйти</button>
       </div>
       <SingUp isOpen={isOpenRegister} setIsOpen={setIsOpenRegister} />
       <Login isOpen={isOpenLogin} setIsOpen={setIsOpenLogin} />
