@@ -19,11 +19,14 @@ export const Order = ({ isOrder, close }: IModalProps) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const { circle, removeOrderItem } = useOrder();
-  const API_URL = process.env.NEXT_PUBLIC_STRAPI_API || "http://:1337";
+  const API_URL =
+    process.env.NEXT_PUBLIC_STRAPI_API ||
+    "http://strapi-progect-shop-production.up.railway.app";
 
   useEffect(() => {
     const checkAuth = async () => {
       const loggedIn = await isAuth();
+      console.log("Проверка авторизации:", loggedIn);
       setIsLoggedIn(loggedIn);
     };
     checkAuth();
@@ -34,6 +37,7 @@ export const Order = ({ isOrder, close }: IModalProps) => {
   }, [circle, close]);
 
   const handleOrderClick = () => {
+    console.log("LOL", isLoggedIn);
     if (isLoggedIn) {
       setFormOpen(true);
       setErrorMessage(null);
@@ -41,7 +45,6 @@ export const Order = ({ isOrder, close }: IModalProps) => {
       alert("Вы не авторизованы. Пожалуйста, войдите в систему.");
     }
   };
-
   return (
     <>
       <div className={styles.overlay}>
@@ -74,7 +77,7 @@ export const Order = ({ isOrder, close }: IModalProps) => {
         </div>
       </div>
       {formOpen && (
-        <OrderForm formOpen={formOpen} closeForm={() => setFormOpen(false)} />
+        <OrderForm formOpen={formOpen} closeForm={() => setFormOpen(true)} />
       )}
     </>
   );

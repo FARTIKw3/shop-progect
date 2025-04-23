@@ -19,7 +19,9 @@ export const Slider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { addBasketItem } = useBasket();
   const { addFavorite } = useFavorite();
-  const API_URL = process.env.NEXT_PUBLIC_STRAPI_API || "http://:1337";
+  const API_URL =
+    process.env.NEXT_PUBLIC_STRAPI_API ||
+    "http://strapi-progect-shop-production.up.railway.app";
   const closeModal = () => setIsOpen(!isOpen);
 
   if (!slideData || slideData.length === 0)

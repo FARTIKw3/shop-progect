@@ -19,11 +19,13 @@ export const BasketPage = () => {
   const closeOrder = () => setIsOrder(!isOrder);
 
   const close = () => setIsOrder(!isOrder);
-  const API_URL = process.env.NEXT_PUBLIC_STRAPI_API || "http://:1337";
+  const API_URL =
+    process.env.NEXT_PUBLIC_STRAPI_API ||
+    "http://strapi-progect-shop-production.up.railway.app";
 
   return (
     <>
-      <div className={styles.container} onClick={close}>
+      <div className={styles.container}>
         {circle.length > 0 && (
           <div
             className={clsx(styles.openOrder, isOrder && styles.OrderActive)}
