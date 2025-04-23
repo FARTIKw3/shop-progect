@@ -19,6 +19,7 @@ export const Order = ({ isOrder, close }: IModalProps) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const { circle, removeOrderItem } = useOrder();
+  const API_URL = process.env.NEXT_PUBLIC_STRAPI_API || "http://:1337";
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -37,40 +38,41 @@ export const Order = ({ isOrder, close }: IModalProps) => {
       setFormOpen(true);
       setErrorMessage(null);
     } else {
-      setErrorMessage("Вы не авторизованы.");
+      alert("Вы не авторизованы. Пожалуйста, войдите в систему.");
     }
   };
 
   return (
     <>
-      <div className={clsx(styles.container, isOrder && styles.active)}>
-        <div className={styles.header}>
-          {circle.map((item, index) => (
-            <div className={styles.imgCon} key={index}>
-              <Image
-                className={styles.img}
-                src={`${process.env.NEXT_PUBLIC_STRAPI_API}/${item.image?.[0]?.url}`}
-                width={100}
-                height={100}
-                alt="img"
-              />
-              <button
-                className={styles.removeBtn}
-                onClick={() => removeOrderItem(item.id)}
-              >
-                <IoMdClose size={26} />
-              </button>
-            </div>
-          ))}
-        </div>
-        <div>
-          <button className={styles.btn} onClick={handleOrderClick}>
-            Оформить заказ
-          </button>
-          {errorMessage && <p className={styles.error}>{errorMessage}</p>}
+      <div className={styles.overlay}>
+        <div className={clsx(styles.container, isOrder && styles.active)}>
+          <div className={styles.header}>
+            {circle.map((item, index) => (
+              <div className={styles.imgCon} key={index}>
+                <Image
+                  className={styles.img}
+                  src={`${API_URL}${item.image[0]?.url}`}
+                  width={100}
+                  height={100}
+                  alt="img"
+                />
+                <button
+                  className={styles.removeBtn}
+                  onClick={() => removeOrderItem(item.id)}
+                >
+                  <IoMdClose size={26} />
+                </button>
+              </div>
+            ))}
+          </div>
+          <div>
+            <button className={styles.btn} onClick={handleOrderClick}>
+              Оформить заказ
+            </button>
+            {errorMessage && <p className={styles.error}>{errorMessage}</p>}
+          </div>
         </div>
       </div>
-
       {formOpen && (
         <OrderForm formOpen={formOpen} closeForm={() => setFormOpen(false)} />
       )}

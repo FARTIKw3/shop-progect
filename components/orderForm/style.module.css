@@ -1,6 +1,6 @@
 .modal {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-color: #000000a8;
   position: fixed;
   top: 0;
@@ -164,10 +164,21 @@
   .span {
     font-size: 18px;
   }
+
+  .title {
+    font-size: 28px;
+    margin: 40px 0 0;
+  }
   .label {
     font-size: 12px;
   }
   .controls {
     justify-content: center;
+  }
+}
+@media (max-width: 500px) {
+  .img {
+    width: 75px;
+    height: 75px;
   }
 }
