@@ -5,6 +5,7 @@ import Image from "next/image";
 import { IoMdClose } from "react-icons/io";
 import { useEffect, useState } from "react";
 import { postOrder } from "@/api/strapi";
+import { useBasket } from "@/store/basket";
 
 interface FormProps {
   formOpen: boolean;
@@ -13,6 +14,8 @@ interface FormProps {
 
 export const OrderForm = ({ formOpen, closeForm }: FormProps) => {
   const { circle, removeOrderItem, clearOrder } = useOrder();
+  const { removeBasketItem } = useBasket();
+
   const [formData, setFormData] = useState({
     name: "",
     lastName: "",
@@ -56,6 +59,7 @@ export const OrderForm = ({ formOpen, closeForm }: FormProps) => {
       alert("Заказ успешно отправлен");
       clearOrder();
       closeForm();
+      removeBasketItem(circle[0].id);
     } catch (error) {
       console.log("Ошибка", error);
     }

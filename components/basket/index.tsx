@@ -9,10 +9,11 @@ import { Order } from "../orders";
 import { useOrder } from "@/store/orders";
 import clsx from "clsx";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
+import { IoMdClose } from "react-icons/io";
 
 export const BasketPage = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { cart } = useBasket();
+  const { cart, removeBasketItem } = useBasket();
   const [isOrder, setIsOrder] = useState(false);
   const { addOrderItem, circle } = useOrder();
   const closeModal = () => setIsOpen(!isOpen);
@@ -92,6 +93,14 @@ export const BasketPage = () => {
                   Добавить к оплате
                 </button>
               </div>
+              <button
+                type="button"
+                title=""
+                className={styles.removeBtn}
+                onClick={() => removeBasketItem(item.id)}
+              >
+                <IoMdClose size={26} />
+              </button>
             </div>
           ))}
         </div>
