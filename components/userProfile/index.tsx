@@ -12,6 +12,7 @@ export const UserProfile = async () => {
       </div>
     );
   const user = await fetchProfile(token);
+
   return (
     <div className={styles.container}>
       <div className={styles.blue}></div>

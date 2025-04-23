@@ -2,6 +2,7 @@
   padding: 40px 20px;
   background: #fff;
   max-width: 1280px;
+  margin: 0 auto;
 }
 
 .reviews__title {
@@ -20,7 +21,7 @@
 .reviews__card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(35, 33, 33, 0.08);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   padding: 30px;
   max-width: 400px;
   min-height: 335px;
@@ -113,5 +114,11 @@
   }
   .reviews__title {
     font-size: 20px;
+  }
+}
+@media (max-width: 520px) {
+  .reviews__card {
+    width: 320px;
+    margin: 10px auto;
   }
 }
