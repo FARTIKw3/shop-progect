@@ -13,6 +13,7 @@
   transition: 0.5s;
   z-index: 8;
 }
+
 .content {
   background-color: white;
   max-width: 1280px;
