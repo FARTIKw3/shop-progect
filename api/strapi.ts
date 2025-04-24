@@ -39,16 +39,23 @@ export const postLogin = (credentials: Icredentials): Promise<IProfile> => {
     .json();
 };
 
-export const postRegister = (credentials: {
+export const postRegister = async (credentials: {
   username: string;
   email: string;
   password: string;
 }): Promise<IProfile> => {
-  return strapiApi
-    .post("api/auth/local/register", {
-      json: credentials,
-    })
-    .json();
+  try {
+    return await strapiApi
+      .post("api/auth/local/register", { json: credentials })
+      .json();
+  } catch (error: any) {
+    const errorMsg =
+      error?.response?.status === 400
+        ? "Неверные данные или пользователь уже существует"
+        : "Произошла ошибка при регистрации";
+    console.error("Ошибка:", error);
+    throw new Error(errorMsg);
+  }
 };
 
 export const fetchProfile = async (
