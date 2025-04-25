@@ -11,7 +11,7 @@
   opacity: 0;
   pointer-events: none;
   transition: 0.5s;
-  z-index: 3;
+  z-index: 333;
 }
 .content {
   background-color: white;
@@ -21,6 +21,7 @@
   border-radius: 32px;
   transform: scale(0.5);
   transition: 0.4s all;
+  z-index: 33;
 }
 .modal.active {
   opacity: 1;
