@@ -10,7 +10,30 @@
   justify-content: space-between;
   align-items: center;
 }
+.cheackBox {
+  display: none;
+}
+.active {
+  display: none;
+}
+.check {
+  display: block;
 
+  margin-left: 8px;
+  color: #070422;
+}.btnFavor {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #959595;
+  background: none;
+  border-radius: 8px;
+  transition: 0.5s;
+  font-size: 12px;
+  color: #070422;
+}
 .lol {
   font-size: 32px;
   font-weight: 600;
@@ -98,9 +121,9 @@
   font-size: 12px;
   color: #070422;
 }
-.btn:hover {
+/* .btn:hover {
   width: 200px;
-}
+} */
 @media (max-width: 760px) {
   .header {
     align-items: flex-start;

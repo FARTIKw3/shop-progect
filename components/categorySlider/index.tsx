@@ -97,7 +97,7 @@ export const CategorySlider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
                       <div>Добавить в корзину</div>
                     </button>
                   </div>
-                  <div className={styles.btn}>
+                  <div className={styles.btnFavor}>
                     <button
                       className={styles.btnw}
                       onClick={() => addFavorite(item)}
