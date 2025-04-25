@@ -63,11 +63,6 @@ export const Header = ({ isLoggedIn }: HeaderProps) => {
                 alt="basket"
               />
             </Link>
-            <div
-              className={clsx(styles.count, cart.length > 0 && styles.countAct)}
-            >
-              {cart.length}
-            </div>
           </div>
 
           <Link
