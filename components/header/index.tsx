@@ -9,13 +9,16 @@ import { logout } from "@/lib/server-helper";
 import { useRouter } from "next/navigation";
 import { SingUp } from "../singUp";
 import { Login } from "../login";
+import { useBasket } from "@/store/basket";
+import { useFavorite } from "@/store/favorite";
 interface HeaderProps {
   isLoggedIn: boolean;
 }
 export const Header = ({ isLoggedIn }: HeaderProps) => {
   const [isActive, setIsActive] = useState(false);
   const [isOpenLogin, setIsOpenLogin] = useState(false);
-
+  const { cart } = useBasket();
+  const { favorite } = useFavorite();
   const [isOpenRegister, setIsOpenRegister] = useState(false);
   const closeRegister = () => setIsOpenRegister(!isOpenRegister);
   const closeLogin = () => setIsOpenLogin(!isOpenLogin);
@@ -48,12 +51,25 @@ export const Header = ({ isLoggedIn }: HeaderProps) => {
           </button>
         </div>
         <div className={styles.favBas}>
-          <Link
-            href="/basket"
-            className={clsx(styles.favorite, isActive && styles.hidden)}
-          >
-            <Image src="/svg/basket.svg" width={30} height={30} alt="basket" />
-          </Link>
+          <div className={styles.basket}>
+            <Link
+              href="/basket"
+              className={clsx(styles.favorite, isActive && styles.hidden)}
+            >
+              <Image
+                src="/svg/basket.svg"
+                width={30}
+                height={30}
+                alt="basket"
+              />
+            </Link>
+            <div
+              className={clsx(styles.count, cart.length > 0 && styles.countAct)}
+            >
+              {cart.length}
+            </div>
+          </div>
+
           <Link
             href="/favorite"
             className={clsx(styles.favorite, isActive && styles.hidden)}

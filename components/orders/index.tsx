@@ -77,7 +77,7 @@ export const Order = ({ isOrder, close }: IModalProps) => {
         </div>
       </div>
       {formOpen && (
-        <OrderForm formOpen={formOpen} closeForm={() => setFormOpen(true)} />
+        <OrderForm formOpen={formOpen} closeForm={() => setFormOpen(false)} />
       )}
     </>
   );

@@ -20,6 +20,18 @@
   align-items: center;
   justify-content: space-between;
 }
+.cheackBox {
+  display: none;
+}
+.active {
+  display: none;
+}
+.check {
+  display: block;
+
+  margin-left: 8px;
+  color: #070422;
+}
 .span {
   font-size: 20px;
   color: #070422;
@@ -65,6 +77,19 @@
   padding: 10px 10px 10px 8px;
 }
 .btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #959595;
+  background: none;
+  border-radius: 8px;
+  transition: 0.5s;
+  font-size: 12px;
+  color: #070422;
+}
+.btnFavor {
   width: 40px;
   height: 40px;
   display: flex;

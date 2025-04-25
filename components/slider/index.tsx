@@ -13,12 +13,14 @@ import { IProduct } from "@/interfaces/strapiData";
 import { Modal } from "../modal";
 import { useBasket } from "@/store/basket";
 import { useFavorite } from "@/store/favorite";
+import clsx from "clsx";
+import { FaCheck } from "react-icons/fa";
 
 export const Slider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
   const [slideData] = useState<IProduct[]>(dataSlide);
   const [isOpen, setIsOpen] = useState(false);
   const { addBasketItem } = useBasket();
-  const { addFavorite } = useFavorite();
+  const { favorite, addFavorite } = useFavorite();
   const API_URL =
     process.env.NEXT_PUBLIC_STRAPI_API ||
     "http://strapi-progect-shop-production.up.railway.app";
@@ -85,15 +87,38 @@ export const Slider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
                       <div>Добавить в корзину</div>
                     </button>
                   </div>
-                  <div className={styles.btn}>
+                  <div className={styles.btnFavor}>
                     <button
                       className={styles.btnw}
                       onClick={() => addFavorite(item)}
                     >
-                      <div className={styles.icon}>
+                      <div
+                        className={clsx(
+                          styles.icon,
+                          favorite.some((fave) => fave.id === item.id) &&
+                            styles.active
+                        )}
+                      >
                         <TbBookmark size={22} />
                       </div>
-                      <div>Добавить в избранное</div>
+                      <div
+                        className={clsx(
+                          styles.icon,
+                          favorite.some((fave) => fave.id === item.id) &&
+                            styles.active
+                        )}
+                      >
+                        Добавить в избранное
+                      </div>
+                      <div
+                        className={clsx(
+                          styles.cheackBox,
+                          favorite.some((fave) => fave.id === item.id) &&
+                            styles.check
+                        )}
+                      >
+                        <FaCheck size={20} />
+                      </div>
                     </button>
                   </div>
                 </div>
