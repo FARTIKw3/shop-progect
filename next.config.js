@@ -2,7 +2,7 @@
 
 const nextConfig = {
   images: {
-    domains: ["localhost", "https://mystrapi5-11-3-production.up.railway.app"],
+    domains: ["localhost", "strapi-progect-shop-production.up.railway.app"],
   },
   eslint: {
     ignoreDuringBuilds: true,
