@@ -20,6 +20,18 @@
   align-items: center;
   justify-content: space-between;
 }
+.cheackBox {
+  display: none;
+}
+.active {
+  display: none;
+}
+.check {
+  display: block;
+
+  margin-left: 8px;
+  color: #070422;
+}
 .span {
   font-size: 20px;
   color: #070422;
