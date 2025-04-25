@@ -54,7 +54,7 @@ export const Order = ({ isOrder, close }: IModalProps) => {
               <div className={styles.imgCon} key={index}>
                 <Image
                   className={styles.img}
-                  src={`${API_URL}${item.image[0]?.url}`}
+                  src={`${API_URL}${item.image[0]?.url}` || "/laptop.png"}
                   width={100}
                   height={100}
                   alt="img"

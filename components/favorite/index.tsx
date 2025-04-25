@@ -44,7 +44,7 @@ export const FavoritePage = () => {
             <div className={styles.cart} key={index}>
               <div>
                 <Image
-                  src={`${API_URL}${item.image[0]?.url}`}
+                  src={`${API_URL}${item.image[0]?.url}` || "/laptop.png"}
                   width={260}
                   height={173}
                   alt="cart"

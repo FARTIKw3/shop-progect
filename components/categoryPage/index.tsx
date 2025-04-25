@@ -44,7 +44,7 @@ export const CategoryPage = ({ allGood }: { allGood: IProduct[] }) => {
           <div className={styles.cart} key={item.id}>
             <div>
               <Image
-                src={`${API_URL}${item.image[0]?.url}`}
+                src={`${API_URL}${item.image[0]?.url}` || "/laptop.png"}
                 width={260}
                 height={173}
                 alt="cart"

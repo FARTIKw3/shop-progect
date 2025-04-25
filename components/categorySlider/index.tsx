@@ -63,7 +63,7 @@ export const CategorySlider = ({ dataSlide }: { dataSlide: IProduct[] }) => {
               <div className={styles.cart}>
                 <div>
                   <Image
-                    src={`${API_URL}${item.image[0]?.url}`}
+                    src={`${API_URL}${item.image[0]?.url}` || "/laptop.png"}
                     className={styles.image}
                     width={260}
                     height={173}
